@@ -1,41 +1,3114 @@
 {
-  "koha": "26.05.02.002",
-  "samples": {
-    "CHECKOUT": {
-      "fields": {
-        "library": "Riverside Library",
-        "firstname": "Jane",
-        "opac": "http://kohadev.myDNSname.org:8080"
-      },
+ "koha": "26.05.02.002",
+ "samples": {
+  "CHECKOUT": {
+   "only": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100"
+     },
+     "loops": {
       "items": [
-        {
-          "title": "E Street shuffle",
-          "author": "Heylin, Clinton",
-          "due": "11/29/2026",
-          "barcode": "KNT-ITEM-1",
-          "hasAuthor": "Heylin, Clinton."
-        },
-        {
-          "title": "The ideas behind the chess openings",
-          "author": "Fine, Reuben",
-          "due": "11/29/2026",
-          "barcode": "KNT-ITEM-2",
-          "hasAuthor": "Fine, Reuben,"
-        }
-      ]
-    },
-    "HOLD": {
-      "fields": {
-        "library": "Riverside Library",
-        "firstname": "Jane",
-        "opac": "http://kohadev.myDNSname.org:8080",
+       {
         "title": "E Street shuffle",
-        "deadline": "12/01/2026",
-        "hasDeadline": "2026-12-01",
-        "phone": "+1 555 0100",
-        "address2": ""
-      },
-      "items": []
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/29/2026"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/29/2026"
+       }
+      ]
+     }
     }
+   }
+  },
+  "CHECKIN": {
+   "only": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/24/2026"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/24/2026"
+       }
+      ]
+     }
+    }
+   }
+  },
+  "PREDUE": {
+   "only": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "due": "11/27/2026"
+     },
+     "loops": {}
+    }
+   }
+  },
+  "DUE": {
+   "only": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "due": "11/24/2026"
+     },
+     "loops": {}
+    }
+   }
+  },
+  "PREDUEDGST": {
+   "one": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "single": "1",
+      "count": "1",
+      "firstDue": "11/27/2026"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/27/2026",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "-1"
+       }
+      ]
+     }
+    }
+   },
+   "three": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "single": "",
+      "count": "3",
+      "firstDue": "11/27/2026"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/27/2026",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/27/2026",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "due": "11/27/2026",
+        "firstTwo": "",
+        "third": "1",
+        "rest": "1"
+       }
+      ]
+     }
+    }
+   }
+  },
+  "DUEDGST": {
+   "one": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "single": "1",
+      "count": "1",
+      "firstDue": "11/24/2026"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/24/2026",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "-1"
+       }
+      ]
+     }
+    }
+   },
+   "three": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "single": "",
+      "count": "3",
+      "firstDue": "11/24/2026"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/24/2026",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/24/2026",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "due": "11/24/2026",
+        "firstTwo": "",
+        "third": "1",
+        "rest": "1"
+       }
+      ]
+     }
+    }
+   }
+  },
+  "ODUE": {
+   "no_fine": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "12 River Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "90210",
+      "r_country": "",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    }
+   },
+   "fine": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "hasFines": "1",
+      "fines": "$2.50",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/16/2026",
+        "hasFine": "1",
+        "fine": "$2.50",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "12 River Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "90210",
+      "r_country": "",
+      "hasFines": "1",
+      "fines": "$2.50",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/16/2026",
+        "hasFine": "1",
+        "fine": "$2.50",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    }
+   },
+   "restricted": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": "9999-12-31"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "12 River Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "90210",
+      "r_country": "",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": "9999-12-31"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    }
+   },
+   "many": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "",
+        "third": "1",
+        "rest": "1"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "12 River Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "90210",
+      "r_country": "",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "due": "11/16/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "",
+        "third": "1",
+        "rest": "1"
+       }
+      ]
+     }
+    }
+   }
+  },
+  "ODUE2": {
+   "no_fine": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "12 River Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "90210",
+      "r_country": "",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    }
+   },
+   "fine": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "hasFines": "1",
+      "fines": "$2.50",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/08/2026",
+        "hasFine": "1",
+        "fine": "$2.50",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "12 River Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "90210",
+      "r_country": "",
+      "hasFines": "1",
+      "fines": "$2.50",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/08/2026",
+        "hasFine": "1",
+        "fine": "$2.50",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    }
+   },
+   "restricted": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": "9999-12-31"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "12 River Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "90210",
+      "r_country": "",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": "9999-12-31"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    }
+   },
+   "many": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "",
+        "third": "1",
+        "rest": "1"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "12 River Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "90210",
+      "r_country": "",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "due": "11/08/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "",
+        "third": "1",
+        "rest": "1"
+       }
+      ]
+     }
+    }
+   }
+  },
+  "ODUE3": {
+   "no_fine": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "12 River Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "90210",
+      "r_country": "",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    }
+   },
+   "fine": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "hasFines": "1",
+      "fines": "$2.50",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "10/25/2026",
+        "hasFine": "1",
+        "fine": "$2.50",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "12 River Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "90210",
+      "r_country": "",
+      "hasFines": "1",
+      "fines": "$2.50",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "10/25/2026",
+        "hasFine": "1",
+        "fine": "$2.50",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    }
+   },
+   "restricted": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": "9999-12-31"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "12 River Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "90210",
+      "r_country": "",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": "9999-12-31"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "0"
+       }
+      ]
+     }
+    }
+   },
+   "many": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "",
+        "third": "1",
+        "rest": "1"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "12 River Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "90210",
+      "r_country": "",
+      "hasFines": "",
+      "fines": "$0.00",
+      "restricted": ""
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "1",
+        "third": "",
+        "rest": "1"
+       },
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "due": "10/25/2026",
+        "hasFine": "",
+        "fine": "$0.00",
+        "firstTwo": "",
+        "third": "1",
+        "rest": "1"
+       }
+      ]
+     }
+    }
+   }
+  },
+  "HOLD": {
+   "only": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "address1": "1 Main Street",
+      "address2": "",
+      "address3": "",
+      "city": "Riverside",
+      "zip": "12345",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "due": "12/01/2026",
+      "hasDue": "2026-12-01"
+     },
+     "loops": {}
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "7 Elm Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "54321",
+      "r_country": "",
+      "address1": "1 Main Street",
+      "address2": "",
+      "address3": "",
+      "city": "Riverside",
+      "zip": "12345",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "due": "12/01/2026",
+      "hasDue": "2026-12-01"
+     },
+     "loops": {}
+    }
+   }
+  },
+  "HOLDDGST": {
+   "one": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "12/01/2026",
+        "hasDue": "2026-12-01",
+        "at": "Riverside Library",
+        "at1": "1 Main Street",
+        "atCity": "Riverside"
+       }
+      ]
+     }
+    }
+   },
+   "three": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "due": "12/03/2026",
+        "hasDue": "2026-12-03",
+        "at": "Riverside Library",
+        "at1": "1 Main Street",
+        "atCity": "Riverside"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "12/02/2026",
+        "hasDue": "2026-12-02",
+        "at": "Riverside Library",
+        "at1": "1 Main Street",
+        "atCity": "Riverside"
+       },
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "12/01/2026",
+        "hasDue": "2026-12-01",
+        "at": "Riverside Library",
+        "at1": "1 Main Street",
+        "atCity": "Riverside"
+       }
+      ]
+     }
+    }
+   },
+   "two_libraries": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "12/02/2026",
+        "hasDue": "2026-12-02",
+        "at": "Hillside Branch",
+        "at1": "2 Hill Road",
+        "atCity": "Riverside"
+       },
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "12/01/2026",
+        "hasDue": "2026-12-01",
+        "at": "Riverside Library",
+        "at1": "1 Main Street",
+        "atCity": "Riverside"
+       }
+      ]
+     }
+    }
+   }
+  },
+  "HOLD_REMINDER": {
+   "one": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "address1": "1 Main Street",
+      "address2": "",
+      "address3": "",
+      "city": "Riverside",
+      "zip": "12345",
+      "single": "1",
+      "count": "1",
+      "overTwo": "",
+      "rest": "-1"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/29/2026",
+        "hasDue": "2026-11-29",
+        "since": "11/24/2026",
+        "firstTwo": "1"
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "7 Elm Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "54321",
+      "r_country": "",
+      "address1": "1 Main Street",
+      "address2": "",
+      "address3": "",
+      "city": "Riverside",
+      "zip": "12345",
+      "single": "1",
+      "count": "1",
+      "overTwo": "",
+      "rest": "-1"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/29/2026",
+        "hasDue": "2026-11-29",
+        "since": "11/24/2026",
+        "firstTwo": "1"
+       }
+      ]
+     }
+    }
+   },
+   "three": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "address1": "1 Main Street",
+      "address2": "",
+      "address3": "",
+      "city": "Riverside",
+      "zip": "12345",
+      "single": "",
+      "count": "3",
+      "overTwo": "1",
+      "rest": "1"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/29/2026",
+        "hasDue": "2026-11-29",
+        "since": "11/24/2026",
+        "firstTwo": "1"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/30/2026",
+        "hasDue": "2026-11-30",
+        "since": "11/24/2026",
+        "firstTwo": "1"
+       },
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "due": "12/01/2026",
+        "hasDue": "2026-12-01",
+        "since": "11/24/2026",
+        "firstTwo": ""
+       }
+      ]
+     }
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "7 Elm Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "54321",
+      "r_country": "",
+      "address1": "1 Main Street",
+      "address2": "",
+      "address3": "",
+      "city": "Riverside",
+      "zip": "12345",
+      "single": "",
+      "count": "3",
+      "overTwo": "1",
+      "rest": "1"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "due": "11/29/2026",
+        "hasDue": "2026-11-29",
+        "since": "11/24/2026",
+        "firstTwo": "1"
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "due": "11/30/2026",
+        "hasDue": "2026-11-30",
+        "since": "11/24/2026",
+        "firstTwo": "1"
+       },
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "due": "12/01/2026",
+        "hasDue": "2026-12-01",
+        "since": "11/24/2026",
+        "firstTwo": ""
+       }
+      ]
+     }
+    }
+   }
+  },
+  "AUTO_RENEWALS": {
+   "renewed": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "1",
+      "final": "",
+      "unseen": "",
+      "late": "0",
+      "due": "12/08/2026",
+      "why_too_many": "",
+      "why_on_reserve": "",
+      "why_restriction": "",
+      "why_overdue": "",
+      "why_too_unseen": "",
+      "why_auto_account_expired": "",
+      "why_auto_too_late": "",
+      "why_auto_too_much_owing": "",
+      "why_item_denied_renewal": "",
+      "notRenewed": "",
+      "refused": "",
+      "lastOne": ""
+     },
+     "loops": {}
+    }
+   },
+   "auto_renew_final": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "1",
+      "final": "1",
+      "unseen": "",
+      "late": "0",
+      "due": "12/08/2026",
+      "why_too_many": "",
+      "why_on_reserve": "",
+      "why_restriction": "",
+      "why_overdue": "",
+      "why_too_unseen": "",
+      "why_auto_account_expired": "",
+      "why_auto_too_late": "",
+      "why_auto_too_much_owing": "",
+      "why_item_denied_renewal": "",
+      "notRenewed": "",
+      "refused": "",
+      "lastOne": "1"
+     },
+     "loops": {}
+    }
+   },
+   "auto_unseen_final": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "1",
+      "final": "",
+      "unseen": "1",
+      "late": "0",
+      "due": "12/08/2026",
+      "why_too_many": "",
+      "why_on_reserve": "",
+      "why_restriction": "",
+      "why_overdue": "",
+      "why_too_unseen": "",
+      "why_auto_account_expired": "",
+      "why_auto_too_late": "",
+      "why_auto_too_much_owing": "",
+      "why_item_denied_renewal": "",
+      "notRenewed": "",
+      "refused": "",
+      "lastOne": "1"
+     },
+     "loops": {}
+    }
+   },
+   "too_many": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "",
+      "final": "",
+      "unseen": "",
+      "late": "0",
+      "due": "11/27/2026",
+      "why_too_many": "1",
+      "why_on_reserve": "",
+      "why_restriction": "",
+      "why_overdue": "",
+      "why_too_unseen": "",
+      "why_auto_account_expired": "",
+      "why_auto_too_late": "",
+      "why_auto_too_much_owing": "",
+      "why_item_denied_renewal": "",
+      "notRenewed": "1",
+      "refused": "1",
+      "lastOne": ""
+     },
+     "loops": {}
+    }
+   },
+   "on_reserve": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "",
+      "final": "",
+      "unseen": "",
+      "late": "0",
+      "due": "11/27/2026",
+      "why_too_many": "",
+      "why_on_reserve": "1",
+      "why_restriction": "",
+      "why_overdue": "",
+      "why_too_unseen": "",
+      "why_auto_account_expired": "",
+      "why_auto_too_late": "",
+      "why_auto_too_much_owing": "",
+      "why_item_denied_renewal": "",
+      "notRenewed": "1",
+      "refused": "1",
+      "lastOne": ""
+     },
+     "loops": {}
+    }
+   },
+   "restriction": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "",
+      "final": "",
+      "unseen": "",
+      "late": "0",
+      "due": "11/27/2026",
+      "why_too_many": "",
+      "why_on_reserve": "",
+      "why_restriction": "1",
+      "why_overdue": "",
+      "why_too_unseen": "",
+      "why_auto_account_expired": "",
+      "why_auto_too_late": "",
+      "why_auto_too_much_owing": "",
+      "why_item_denied_renewal": "",
+      "notRenewed": "1",
+      "refused": "1",
+      "lastOne": ""
+     },
+     "loops": {}
+    }
+   },
+   "overdue": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "",
+      "final": "",
+      "unseen": "",
+      "late": "1",
+      "due": "11/21/2026",
+      "why_too_many": "",
+      "why_on_reserve": "",
+      "why_restriction": "",
+      "why_overdue": "1",
+      "why_too_unseen": "",
+      "why_auto_account_expired": "",
+      "why_auto_too_late": "",
+      "why_auto_too_much_owing": "",
+      "why_item_denied_renewal": "",
+      "notRenewed": "1",
+      "refused": "1",
+      "lastOne": ""
+     },
+     "loops": {}
+    }
+   },
+   "too_unseen": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "",
+      "final": "",
+      "unseen": "",
+      "late": "0",
+      "due": "11/27/2026",
+      "why_too_many": "",
+      "why_on_reserve": "",
+      "why_restriction": "",
+      "why_overdue": "",
+      "why_too_unseen": "1",
+      "why_auto_account_expired": "",
+      "why_auto_too_late": "",
+      "why_auto_too_much_owing": "",
+      "why_item_denied_renewal": "",
+      "notRenewed": "1",
+      "refused": "1",
+      "lastOne": ""
+     },
+     "loops": {}
+    }
+   },
+   "auto_account_expired": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "",
+      "final": "",
+      "unseen": "",
+      "late": "0",
+      "due": "11/27/2026",
+      "why_too_many": "",
+      "why_on_reserve": "",
+      "why_restriction": "",
+      "why_overdue": "",
+      "why_too_unseen": "",
+      "why_auto_account_expired": "1",
+      "why_auto_too_late": "",
+      "why_auto_too_much_owing": "",
+      "why_item_denied_renewal": "",
+      "notRenewed": "1",
+      "refused": "1",
+      "lastOne": ""
+     },
+     "loops": {}
+    }
+   },
+   "auto_too_late": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "",
+      "final": "",
+      "unseen": "",
+      "late": "0",
+      "due": "11/27/2026",
+      "why_too_many": "",
+      "why_on_reserve": "",
+      "why_restriction": "",
+      "why_overdue": "",
+      "why_too_unseen": "",
+      "why_auto_account_expired": "",
+      "why_auto_too_late": "1",
+      "why_auto_too_much_owing": "",
+      "why_item_denied_renewal": "",
+      "notRenewed": "1",
+      "refused": "1",
+      "lastOne": ""
+     },
+     "loops": {}
+    }
+   },
+   "auto_too_much_owing": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "",
+      "final": "",
+      "unseen": "",
+      "late": "0",
+      "due": "11/27/2026",
+      "why_too_many": "",
+      "why_on_reserve": "",
+      "why_restriction": "",
+      "why_overdue": "",
+      "why_too_unseen": "",
+      "why_auto_account_expired": "",
+      "why_auto_too_late": "",
+      "why_auto_too_much_owing": "1",
+      "why_item_denied_renewal": "",
+      "notRenewed": "1",
+      "refused": "1",
+      "lastOne": ""
+     },
+     "loops": {}
+    }
+   },
+   "item_denied_renewal": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "",
+      "final": "",
+      "unseen": "",
+      "late": "0",
+      "due": "11/27/2026",
+      "why_too_many": "",
+      "why_on_reserve": "",
+      "why_restriction": "",
+      "why_overdue": "",
+      "why_too_unseen": "",
+      "why_auto_account_expired": "",
+      "why_auto_too_late": "",
+      "why_auto_too_much_owing": "",
+      "why_item_denied_renewal": "1",
+      "notRenewed": "1",
+      "refused": "1",
+      "lastOne": ""
+     },
+     "loops": {}
+    }
+   },
+   "unknown_reason": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "title": "E Street shuffle",
+      "title40": "E Street shuffle",
+      "title60": "E Street shuffle",
+      "author": "Heylin, Clinton",
+      "hasAuthor": "Heylin, Clinton",
+      "barcode": "KNT-ITEM-1",
+      "callnumber": "KNT 1",
+      "renewed": "",
+      "final": "",
+      "unseen": "",
+      "late": "0",
+      "due": "11/27/2026",
+      "why_too_many": "",
+      "why_on_reserve": "",
+      "why_restriction": "",
+      "why_overdue": "",
+      "why_too_unseen": "",
+      "why_auto_account_expired": "",
+      "why_auto_too_late": "",
+      "why_auto_too_much_owing": "",
+      "why_item_denied_renewal": "",
+      "notRenewed": "1",
+      "refused": "1",
+      "lastOne": ""
+     },
+     "loops": {}
+    }
+   }
+  },
+  "AUTO_RENEWALS_DGST": {
+   "renewed": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "success": "3",
+      "error": "0",
+      "both": "0",
+      "hasMore": "",
+      "more": "-2"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "renewed": "1",
+        "final": "",
+        "unseen": "",
+        "late": "0",
+        "due": "12/11/2026",
+        "why_too_many": "",
+        "why_on_reserve": "",
+        "why_restriction": "",
+        "why_overdue": "",
+        "why_too_unseen": "",
+        "why_auto_account_expired": "",
+        "why_auto_too_late": "",
+        "why_auto_too_much_owing": "",
+        "why_item_denied_renewal": ""
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "renewed": "1",
+        "final": "",
+        "unseen": "",
+        "late": "0",
+        "due": "12/12/2026",
+        "why_too_many": "",
+        "why_on_reserve": "",
+        "why_restriction": "",
+        "why_overdue": "",
+        "why_too_unseen": "",
+        "why_auto_account_expired": "",
+        "why_auto_too_late": "",
+        "why_auto_too_much_owing": "",
+        "why_item_denied_renewal": ""
+       },
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "renewed": "1",
+        "final": "",
+        "unseen": "",
+        "late": "0",
+        "due": "12/13/2026",
+        "why_too_many": "",
+        "why_on_reserve": "",
+        "why_restriction": "",
+        "why_overdue": "",
+        "why_too_unseen": "",
+        "why_auto_account_expired": "",
+        "why_auto_too_late": "",
+        "why_auto_too_much_owing": "",
+        "why_item_denied_renewal": ""
+       }
+      ],
+      "failed": []
+     }
+    }
+   },
+   "last_renewal": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "success": "1",
+      "error": "0",
+      "both": "0",
+      "hasMore": "",
+      "more": "-2"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "renewed": "1",
+        "final": "1",
+        "unseen": "",
+        "late": "0",
+        "due": "12/11/2026",
+        "why_too_many": "",
+        "why_on_reserve": "",
+        "why_restriction": "",
+        "why_overdue": "",
+        "why_too_unseen": "",
+        "why_auto_account_expired": "",
+        "why_auto_too_late": "",
+        "why_auto_too_much_owing": "",
+        "why_item_denied_renewal": ""
+       }
+      ],
+      "failed": []
+     }
+    }
+   },
+   "not_renewed": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "success": "0",
+      "error": "3",
+      "both": "0",
+      "hasMore": "1",
+      "more": "1"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "renewed": "",
+        "final": "",
+        "unseen": "",
+        "late": "1",
+        "due": "11/21/2026",
+        "why_too_many": "",
+        "why_on_reserve": "",
+        "why_restriction": "",
+        "why_overdue": "1",
+        "why_too_unseen": "",
+        "why_auto_account_expired": "",
+        "why_auto_too_late": "",
+        "why_auto_too_much_owing": "",
+        "why_item_denied_renewal": ""
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "renewed": "",
+        "final": "",
+        "unseen": "",
+        "late": "0",
+        "due": "11/28/2026",
+        "why_too_many": "",
+        "why_on_reserve": "1",
+        "why_restriction": "",
+        "why_overdue": "",
+        "why_too_unseen": "",
+        "why_auto_account_expired": "",
+        "why_auto_too_late": "",
+        "why_auto_too_much_owing": "",
+        "why_item_denied_renewal": ""
+       },
+       {
+        "title": "Introduction to Attic Greek",
+        "title40": "Introduction to Attic Greek",
+        "title60": "Introduction to Attic Greek",
+        "author": "Mastronarde, Donald J",
+        "hasAuthor": "Mastronarde, Donald J.",
+        "barcode": "KNT-ITEM-3",
+        "callnumber": "KNT 3",
+        "renewed": "",
+        "final": "",
+        "unseen": "",
+        "late": "0",
+        "due": "11/29/2026",
+        "why_too_many": "",
+        "why_on_reserve": "1",
+        "why_restriction": "",
+        "why_overdue": "",
+        "why_too_unseen": "",
+        "why_auto_account_expired": "",
+        "why_auto_too_late": "",
+        "why_auto_too_much_owing": "",
+        "why_item_denied_renewal": ""
+       }
+      ],
+      "failed": [
+       {
+        "f_title": "E Street shuffle",
+        "f_due": "11/21/2026",
+        "f_firstTwo": "1"
+       },
+       {
+        "f_title": "The ideas behind the chess openings",
+        "f_due": "11/28/2026",
+        "f_firstTwo": "1"
+       },
+       {
+        "f_title": "Introduction to Attic Greek",
+        "f_due": "11/29/2026",
+        "f_firstTwo": ""
+       }
+      ]
+     }
+    }
+   },
+   "mixed": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "success": "1",
+      "error": "1",
+      "both": "1",
+      "hasMore": "",
+      "more": "-1"
+     },
+     "loops": {
+      "items": [
+       {
+        "title": "E Street shuffle",
+        "title40": "E Street shuffle",
+        "title60": "E Street shuffle",
+        "author": "Heylin, Clinton",
+        "hasAuthor": "Heylin, Clinton.",
+        "barcode": "KNT-ITEM-1",
+        "callnumber": "KNT 1",
+        "renewed": "1",
+        "final": "",
+        "unseen": "",
+        "late": "0",
+        "due": "12/11/2026",
+        "why_too_many": "",
+        "why_on_reserve": "",
+        "why_restriction": "",
+        "why_overdue": "",
+        "why_too_unseen": "",
+        "why_auto_account_expired": "",
+        "why_auto_too_late": "",
+        "why_auto_too_much_owing": "",
+        "why_item_denied_renewal": ""
+       },
+       {
+        "title": "The ideas behind the chess openings",
+        "title40": "The ideas behind the chess openings",
+        "title60": "The ideas behind the chess openings",
+        "author": "Fine, Reuben",
+        "hasAuthor": "Fine, Reuben,",
+        "barcode": "KNT-ITEM-2",
+        "callnumber": "KNT 2",
+        "renewed": "",
+        "final": "",
+        "unseen": "",
+        "late": "0",
+        "due": "11/28/2026",
+        "why_too_many": "",
+        "why_on_reserve": "1",
+        "why_restriction": "",
+        "why_overdue": "",
+        "why_too_unseen": "",
+        "why_auto_account_expired": "",
+        "why_auto_too_late": "",
+        "why_auto_too_much_owing": "",
+        "why_item_denied_renewal": ""
+       }
+      ],
+      "failed": [
+       {
+        "f_title": "The ideas behind the chess openings",
+        "f_due": "11/28/2026",
+        "f_firstTwo": "1"
+       }
+      ]
+     }
+    }
+   }
+  },
+  "WELCOME": {
+   "own_user_name": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "card": "KNT-0003",
+      "ends": "11/24/2027",
+      "hasEnds": "2027-11-24",
+      "user": "knt-welcome",
+      "hasUser": "1"
+     },
+     "loops": {}
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "7 Elm Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "54321",
+      "r_country": "",
+      "card": "KNT-0003",
+      "ends": "11/24/2027",
+      "hasEnds": "2027-11-24",
+      "user": "knt-welcome",
+      "hasUser": "1"
+     },
+     "loops": {}
+    }
+   },
+   "card_as_user_name": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "card": "KNT-0003",
+      "ends": "11/24/2027",
+      "hasEnds": "2027-11-24",
+      "user": "KNT-0003",
+      "hasUser": ""
+     },
+     "loops": {}
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "7 Elm Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "54321",
+      "r_country": "",
+      "card": "KNT-0003",
+      "ends": "11/24/2027",
+      "hasEnds": "2027-11-24",
+      "user": "KNT-0003",
+      "hasUser": ""
+     },
+     "loops": {}
+    }
+   }
+  },
+  "MEMBERSHIP_EXPIRY": {
+   "only": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "card": "KNT-0001",
+      "ends": "12/08/2026",
+      "hasEnds": "2026-12-08",
+      "user": "knt-sample-reader",
+      "hasUser": "1"
+     },
+     "loops": {}
+    },
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "today": "11/24/2026",
+      "r_address": "7 Elm Road",
+      "r_address2": "",
+      "r_city": "Riverside",
+      "r_zipcode": "54321",
+      "r_country": "",
+      "card": "KNT-0001",
+      "ends": "12/08/2026",
+      "hasEnds": "2026-12-08",
+      "user": "knt-sample-reader",
+      "hasUser": "1"
+     },
+     "loops": {}
+    }
+   }
+  },
+  "PASSWORD_RESET": {
+   "library_name_set": {
+    "email": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "user": "knt-sample-reader",
+      "link": "http://kohadev.myDNSname.org:8080/cgi-bin/koha/opac-password-recovery.pl?uniqueKey=SAMPLE-KEY"
+     },
+     "loops": {}
+    }
+   },
+   "library_name_empty": {
+    "email": {
+     "fields": {
+      "library": "Your library",
+      "initial": "Y",
+      "user": "knt-sample-reader",
+      "link": "http://kohadev.myDNSname.org:8080/cgi-bin/koha/opac-password-recovery.pl?uniqueKey=SAMPLE-KEY"
+     },
+     "loops": {}
+    }
+   }
+  },
+  "ISSUESLIP": {
+   "only": {
+    "print": {
+     "fields": {
+      "library": "Riverside Library",
+      "initial": "R",
+      "firstname": "Jane",
+      "opac": "http://kohadev.myDNSname.org:8080",
+      "phone": "+1 555 0100",
+      "email": "library@example.org",
+      "contact": "+1 555 0100",
+      "surname": "Reader",
+      "card": "KNT-0001",
+      "now": "11/24/2026 07:56",
+      "hasLoans": "2",
+      "loans": "2",
+      "hasLate": "1",
+      "late": "1"
+     },
+     "loops": {
+      "out": [
+       {
+        "title": "The ideas behind the chess openings",
+        "barcode": "KNT-ITEM-2",
+        "due": "12/08/2026"
+       },
+       {
+        "title": "E Street shuffle",
+        "barcode": "KNT-ITEM-1",
+        "due": "12/08/2026"
+       }
+      ],
+      "over": [
+       {
+        "o_title": "Introduction to Attic Greek",
+        "o_barcode": "KNT-ITEM-3",
+        "o_due": "11/21/2026"
+       }
+      ]
+     }
+    }
+   }
   }
+ }
 }

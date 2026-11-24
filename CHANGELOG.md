@@ -2,4 +2,5 @@
 
 ## Unreleased
 
-- The compiler, proved through a real Koha for CHECKOUT and HOLD emails; the single-file build and its offline test.
+- The compiler: 18 notices in HTML, text, SMS and print, 8 ready designs as data, every setting checked; proved through a
+  real Koha (`scripts/prove.mjs`), looks checked (`scripts/look.mjs`); the single-file build and its offline test.

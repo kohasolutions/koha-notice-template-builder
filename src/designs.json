@@ -1,0 +1,1143 @@
+[
+ {
+  "id": "classic",
+  "name": "Classic",
+  "about": "A letter from the library: white page, navy rule, ruled list.",
+  "page": {
+   "bg": "#ffffff",
+   "padTop": 24,
+   "padSide": 12
+  },
+  "card": {
+   "bg": "#ffffff",
+   "width": 600,
+   "radius": 0,
+   "border": "",
+   "topBar": "#1f4e79",
+   "topBarHeight": 5,
+   "padSide": 8
+  },
+  "type": {
+   "font": "arial",
+   "headingFont": "arial",
+   "size": 16,
+   "headingSize": 23,
+   "headingWeight": "bold",
+   "headingAlign": "left",
+   "text": "#1f2933",
+   "muted": "#52606d",
+   "heading": "#1f4e79",
+   "link": "#1f4e79"
+  },
+  "header": {
+   "show": true,
+   "place": "card",
+   "layout": "left",
+   "bg": "",
+   "text": "#1f4e79",
+   "padY": 20,
+   "name": true,
+   "nameSize": 21,
+   "nameCase": "none",
+   "tagline": true,
+   "taglineColour": "#52606d",
+   "logoHeight": 48,
+   "monogram": true,
+   "monogramBg": "#1f4e79",
+   "monogramText": "#ffffff",
+   "monogramRadius": 6,
+   "rule": "#d9dee4",
+   "ruleStyle": "solid",
+   "ruleWidth": 1,
+   "stripe": [],
+   "banner": "",
+   "bannerAlt": ""
+  },
+  "hero": {
+   "style": "plain",
+   "bg": "",
+   "text": "",
+   "kicker": true,
+   "kickerColour": "#52606d",
+   "padY": 24
+  },
+  "items": {
+   "style": "list",
+   "fields": [
+    "title",
+    "author",
+    "callnumber",
+    "barcode",
+    "due",
+    "fine"
+   ],
+   "line": "#d9dee4",
+   "bg": "",
+   "bar": "",
+   "barSide": "left",
+   "radius": 0,
+   "border": "",
+   "due": "text",
+   "dueBg": "",
+   "dueText": "",
+   "headBg": "",
+   "headText": ""
+  },
+  "box": {
+   "bg": "#f3f6f9",
+   "border": "",
+   "bar": "",
+   "radius": 4,
+   "text": "#1f2933"
+  },
+  "alert": {
+   "bg": "#fdf1ef",
+   "bar": "#b42318",
+   "text": "#7a1a12",
+   "radius": 4
+  },
+  "button": {
+   "show": true,
+   "style": "solid",
+   "bg": "#1f4e79",
+   "text": "#ffffff",
+   "radius": 4,
+   "align": "left",
+   "width": "auto"
+  },
+  "footer": {
+   "place": "card",
+   "bg": "",
+   "text": "#52606d",
+   "link": "#1f4e79",
+   "align": "left",
+   "layout": "stacked",
+   "rule": "#d9dee4",
+   "show": [
+    "address",
+    "phone",
+    "email",
+    "hours",
+    "links",
+    "social",
+    "smallprint"
+   ]
+  },
+  "social": {
+   "style": "text",
+   "bg": "",
+   "text": "",
+   "radius": 0,
+   "size": 32
+  },
+  "sections": [
+   "greeting",
+   "intro",
+   "items",
+   "alert",
+   "details",
+   "note",
+   "button",
+   "closing"
+  ]
+ },
+ {
+  "id": "modern-card",
+  "name": "Modern card",
+  "about": "A floating rounded card on soft grey, pill badges and a full-width button.",
+  "page": {
+   "bg": "#eef2f5",
+   "padTop": 32,
+   "padSide": 12
+  },
+  "card": {
+   "bg": "#ffffff",
+   "width": 600,
+   "radius": 18,
+   "border": "",
+   "topBar": "",
+   "topBarHeight": 4,
+   "padSide": 32
+  },
+  "type": {
+   "font": "arial",
+   "headingFont": "arial",
+   "size": 16,
+   "headingSize": 28,
+   "headingWeight": "bold",
+   "headingAlign": "left",
+   "text": "#22343a",
+   "muted": "#566870",
+   "heading": "#102a2c",
+   "link": "#0b6b66"
+  },
+  "header": {
+   "show": true,
+   "place": "page",
+   "layout": "centre",
+   "bg": "",
+   "text": "#102a2c",
+   "padY": 8,
+   "name": true,
+   "nameSize": 18,
+   "nameCase": "none",
+   "tagline": false,
+   "taglineColour": "",
+   "logoHeight": 48,
+   "monogram": true,
+   "monogramBg": "#0f766e",
+   "monogramText": "#ffffff",
+   "monogramRadius": 14,
+   "rule": "",
+   "ruleStyle": "solid",
+   "ruleWidth": 1,
+   "stripe": [],
+   "banner": "",
+   "bannerAlt": ""
+  },
+  "hero": {
+   "style": "plain",
+   "bg": "",
+   "text": "",
+   "kicker": true,
+   "kickerColour": "#0b6b66",
+   "padY": 32
+  },
+  "items": {
+   "style": "cards",
+   "fields": [
+    "title",
+    "author",
+    "callnumber",
+    "barcode",
+    "due",
+    "fine"
+   ],
+   "line": "#d9dee4",
+   "bg": "#f4f8f8",
+   "bar": "",
+   "barSide": "left",
+   "radius": 12,
+   "border": "",
+   "due": "pill",
+   "dueBg": "#d5efeb",
+   "dueText": "#0a4f4b",
+   "headBg": "",
+   "headText": ""
+  },
+  "box": {
+   "bg": "#f4f8f8",
+   "border": "",
+   "bar": "",
+   "radius": 12,
+   "text": "#22343a"
+  },
+  "alert": {
+   "bg": "#fff1ee",
+   "bar": "",
+   "text": "#8a2415",
+   "radius": 12
+  },
+  "button": {
+   "show": true,
+   "style": "solid",
+   "bg": "#0f766e",
+   "text": "#ffffff",
+   "radius": 28,
+   "align": "centre",
+   "width": "full"
+  },
+  "footer": {
+   "place": "page",
+   "bg": "",
+   "text": "#566870",
+   "link": "#0b6b66",
+   "align": "centre",
+   "layout": "stacked",
+   "rule": "",
+   "show": [
+    "address",
+    "phone",
+    "email",
+    "hours",
+    "links",
+    "social",
+    "smallprint"
+   ]
+  },
+  "social": {
+   "style": "badge",
+   "bg": "#dde6e9",
+   "text": "#22343a",
+   "radius": 16,
+   "size": 32
+  },
+  "sections": [
+   "greeting",
+   "intro",
+   "items",
+   "alert",
+   "details",
+   "note",
+   "button",
+   "closing"
+  ]
+ },
+ {
+  "id": "bold-header",
+  "name": "Bold header",
+  "about": "One strong colour block carries the message; the list is a clear table.",
+  "page": {
+   "bg": "#f5f3f8",
+   "padTop": 0,
+   "padSide": 12
+  },
+  "card": {
+   "bg": "#ffffff",
+   "width": 600,
+   "radius": 0,
+   "border": "",
+   "topBar": "",
+   "topBarHeight": 4,
+   "padSide": 32
+  },
+  "type": {
+   "font": "verdana",
+   "headingFont": "verdana",
+   "size": 16,
+   "headingSize": 34,
+   "headingWeight": "bold",
+   "headingAlign": "left",
+   "text": "#241c33",
+   "muted": "#5d556b",
+   "heading": "#ffffff",
+   "link": "#5b21b6"
+  },
+  "header": {
+   "show": true,
+   "place": "card",
+   "layout": "left",
+   "bg": "#4c1d95",
+   "text": "#ffffff",
+   "padY": 24,
+   "name": true,
+   "nameSize": 17,
+   "nameCase": "none",
+   "tagline": false,
+   "taglineColour": "",
+   "logoHeight": 48,
+   "monogram": true,
+   "monogramBg": "#ffffff",
+   "monogramText": "#4c1d95",
+   "monogramRadius": 0,
+   "rule": "",
+   "ruleStyle": "solid",
+   "ruleWidth": 1,
+   "stripe": [],
+   "banner": "",
+   "bannerAlt": ""
+  },
+  "hero": {
+   "style": "solid",
+   "bg": "#4c1d95",
+   "text": "#ffffff",
+   "kicker": true,
+   "kickerColour": "#e4d7ff",
+   "padY": 36
+  },
+  "items": {
+   "style": "table",
+   "fields": [
+    "title",
+    "author",
+    "callnumber",
+    "barcode",
+    "due",
+    "fine"
+   ],
+   "line": "#ddd5ec",
+   "bg": "",
+   "bar": "",
+   "barSide": "left",
+   "radius": 0,
+   "border": "",
+   "due": "strong",
+   "dueBg": "",
+   "dueText": "",
+   "headBg": "#ece6f7",
+   "headText": "#3b1876"
+  },
+  "box": {
+   "bg": "#f5f1fc",
+   "border": "",
+   "bar": "#4c1d95",
+   "radius": 0,
+   "text": "#241c33"
+  },
+  "alert": {
+   "bg": "#fdf1ef",
+   "bar": "#b42318",
+   "text": "#7a1a12",
+   "radius": 0
+  },
+  "button": {
+   "show": true,
+   "style": "solid",
+   "bg": "#4c1d95",
+   "text": "#ffffff",
+   "radius": 0,
+   "align": "left",
+   "width": "auto"
+  },
+  "footer": {
+   "place": "card",
+   "bg": "#241c33",
+   "text": "#d8d2e4",
+   "link": "#ffffff",
+   "align": "left",
+   "layout": "stacked",
+   "rule": "",
+   "show": [
+    "address",
+    "phone",
+    "email",
+    "hours",
+    "links",
+    "social",
+    "smallprint"
+   ]
+  },
+  "social": {
+   "style": "badge",
+   "bg": "#4c1d95",
+   "text": "#ffffff",
+   "radius": 0,
+   "size": 32
+  },
+  "sections": [
+   "greeting",
+   "intro",
+   "items",
+   "alert",
+   "details",
+   "note",
+   "button",
+   "closing"
+  ]
+ },
+ {
+  "id": "minimal",
+  "name": "Minimal",
+  "about": "Type and white space only. No colour blocks, a text link for the button.",
+  "page": {
+   "bg": "#ffffff",
+   "padTop": 24,
+   "padSide": 12
+  },
+  "card": {
+   "bg": "#ffffff",
+   "width": 520,
+   "radius": 0,
+   "border": "",
+   "topBar": "",
+   "topBarHeight": 4,
+   "padSide": 8
+  },
+  "type": {
+   "font": "arial",
+   "headingFont": "arial",
+   "size": 16,
+   "headingSize": 26,
+   "headingWeight": "normal",
+   "headingAlign": "left",
+   "text": "#222222",
+   "muted": "#666666",
+   "heading": "#111111",
+   "link": "#111111"
+  },
+  "header": {
+   "show": true,
+   "place": "card",
+   "layout": "left",
+   "bg": "",
+   "text": "#111111",
+   "padY": 28,
+   "name": true,
+   "nameSize": 14,
+   "nameCase": "spaced",
+   "tagline": false,
+   "taglineColour": "",
+   "logoHeight": 48,
+   "monogram": false,
+   "monogramBg": "#1f4e79",
+   "monogramText": "#ffffff",
+   "monogramRadius": 6,
+   "rule": "",
+   "ruleStyle": "solid",
+   "ruleWidth": 1,
+   "stripe": [],
+   "banner": "",
+   "bannerAlt": ""
+  },
+  "hero": {
+   "style": "plain",
+   "bg": "",
+   "text": "",
+   "kicker": false,
+   "kickerColour": "#52606d",
+   "padY": 8
+  },
+  "items": {
+   "style": "list",
+   "fields": [
+    "title",
+    "author",
+    "callnumber",
+    "barcode",
+    "due",
+    "fine"
+   ],
+   "line": "#e6e6e6",
+   "bg": "",
+   "bar": "",
+   "barSide": "left",
+   "radius": 0,
+   "border": "",
+   "due": "line",
+   "dueBg": "",
+   "dueText": "",
+   "headBg": "",
+   "headText": ""
+  },
+  "box": {
+   "bg": "",
+   "border": "#111111",
+   "bar": "",
+   "radius": 0,
+   "text": "#222222"
+  },
+  "alert": {
+   "bg": "",
+   "bar": "#111111",
+   "text": "#222222",
+   "radius": 0
+  },
+  "button": {
+   "show": true,
+   "style": "link",
+   "bg": "#111111",
+   "text": "#111111",
+   "radius": 4,
+   "align": "left",
+   "width": "auto"
+  },
+  "footer": {
+   "place": "card",
+   "bg": "",
+   "text": "#666666",
+   "link": "#222222",
+   "align": "left",
+   "layout": "stacked",
+   "rule": "#e6e6e6",
+   "show": [
+    "address",
+    "phone",
+    "email",
+    "hours",
+    "links",
+    "social",
+    "smallprint"
+   ]
+  },
+  "social": {
+   "style": "text",
+   "bg": "",
+   "text": "",
+   "radius": 0,
+   "size": 32
+  },
+  "sections": [
+   "greeting",
+   "intro",
+   "items",
+   "alert",
+   "details",
+   "note",
+   "button",
+   "closing"
+  ]
+ },
+ {
+  "id": "academic",
+  "name": "Academic",
+  "about": "Georgia on ivory with burgundy rules and a centred masthead, like a university letterhead.",
+  "page": {
+   "bg": "#f1ece1",
+   "padTop": 28,
+   "padSide": 12
+  },
+  "card": {
+   "bg": "#fffdf8",
+   "width": 600,
+   "radius": 0,
+   "border": "#d8cbb4",
+   "topBar": "",
+   "topBarHeight": 4,
+   "padSide": 36
+  },
+  "type": {
+   "font": "georgia",
+   "headingFont": "georgia",
+   "size": 17,
+   "headingSize": 27,
+   "headingWeight": "normal",
+   "headingAlign": "centre",
+   "text": "#2b2522",
+   "muted": "#655a50",
+   "heading": "#6d1a2b",
+   "link": "#6d1a2b"
+  },
+  "header": {
+   "show": true,
+   "place": "card",
+   "layout": "centre",
+   "bg": "",
+   "text": "#6d1a2b",
+   "padY": 28,
+   "name": true,
+   "nameSize": 24,
+   "nameCase": "none",
+   "tagline": true,
+   "taglineColour": "#655a50",
+   "logoHeight": 48,
+   "monogram": true,
+   "monogramBg": "#6d1a2b",
+   "monogramText": "#fffdf8",
+   "monogramRadius": 28,
+   "rule": "#6d1a2b",
+   "ruleStyle": "double",
+   "ruleWidth": 4,
+   "stripe": [],
+   "banner": "",
+   "bannerAlt": ""
+  },
+  "hero": {
+   "style": "plain",
+   "bg": "",
+   "text": "",
+   "kicker": true,
+   "kickerColour": "#655a50",
+   "padY": 28
+  },
+  "items": {
+   "style": "table",
+   "fields": [
+    "title",
+    "author",
+    "callnumber",
+    "barcode",
+    "due",
+    "fine"
+   ],
+   "line": "#d8cbb4",
+   "bg": "",
+   "bar": "",
+   "barSide": "left",
+   "radius": 0,
+   "border": "",
+   "due": "text",
+   "dueBg": "",
+   "dueText": "",
+   "headBg": "",
+   "headText": "#6d1a2b"
+  },
+  "box": {
+   "bg": "#f7f1e5",
+   "border": "#d8cbb4",
+   "bar": "",
+   "radius": 0,
+   "text": "#2b2522"
+  },
+  "alert": {
+   "bg": "#fbeeee",
+   "bar": "#6d1a2b",
+   "text": "#6d1a2b",
+   "radius": 0
+  },
+  "button": {
+   "show": true,
+   "style": "outline",
+   "bg": "#6d1a2b",
+   "text": "#6d1a2b",
+   "radius": 0,
+   "align": "centre",
+   "width": "auto"
+  },
+  "footer": {
+   "place": "card",
+   "bg": "",
+   "text": "#655a50",
+   "link": "#6d1a2b",
+   "align": "centre",
+   "layout": "stacked",
+   "rule": "#d8cbb4",
+   "show": [
+    "address",
+    "phone",
+    "email",
+    "hours",
+    "links",
+    "social",
+    "smallprint"
+   ]
+  },
+  "social": {
+   "style": "text",
+   "bg": "",
+   "text": "",
+   "radius": 0,
+   "size": 32
+  },
+  "sections": [
+   "greeting",
+   "intro",
+   "items",
+   "alert",
+   "details",
+   "note",
+   "button",
+   "closing"
+  ]
+ },
+ {
+  "id": "school",
+  "name": "School",
+  "about": "Friendly and bright: bright header, a colour stripe and rounded shapes.",
+  "page": {
+   "bg": "#e8f3fc",
+   "padTop": 24,
+   "padSide": 12
+  },
+  "card": {
+   "bg": "#ffffff",
+   "width": 600,
+   "radius": 14,
+   "border": "",
+   "topBar": "",
+   "topBarHeight": 4,
+   "padSide": 28
+  },
+  "type": {
+   "font": "trebuchet",
+   "headingFont": "trebuchet",
+   "size": 17,
+   "headingSize": 30,
+   "headingWeight": "bold",
+   "headingAlign": "left",
+   "text": "#1d2f42",
+   "muted": "#42566a",
+   "heading": "#123c69",
+   "link": "#0b5394"
+  },
+  "header": {
+   "show": true,
+   "place": "card",
+   "layout": "centre",
+   "bg": "#1463b0",
+   "text": "#ffffff",
+   "padY": 24,
+   "name": true,
+   "nameSize": 24,
+   "nameCase": "none",
+   "tagline": false,
+   "taglineColour": "",
+   "logoHeight": 48,
+   "monogram": true,
+   "monogramBg": "#fff0b3",
+   "monogramText": "#123c69",
+   "monogramRadius": 28,
+   "rule": "",
+   "ruleStyle": "solid",
+   "ruleWidth": 1,
+   "stripe": [
+    "#f4b400",
+    "#e4572e",
+    "#2e9e5b",
+    "#8e44ad"
+   ],
+   "banner": "",
+   "bannerAlt": ""
+  },
+  "hero": {
+   "style": "plain",
+   "bg": "",
+   "text": "",
+   "kicker": false,
+   "kickerColour": "#52606d",
+   "padY": 28
+  },
+  "items": {
+   "style": "cards",
+   "fields": [
+    "title",
+    "author",
+    "callnumber",
+    "barcode",
+    "due",
+    "fine"
+   ],
+   "line": "#d9dee4",
+   "bg": "#fff9e3",
+   "bar": "#2e9e5b",
+   "barSide": "left",
+   "radius": 8,
+   "border": "",
+   "due": "pill",
+   "dueBg": "#123c69",
+   "dueText": "#ffffff",
+   "headBg": "",
+   "headText": ""
+  },
+  "box": {
+   "bg": "#e8f3fc",
+   "border": "",
+   "bar": "",
+   "radius": 10,
+   "text": "#1d2f42"
+  },
+  "alert": {
+   "bg": "#fdeae4",
+   "bar": "",
+   "text": "#8c2a0f",
+   "radius": 10
+  },
+  "button": {
+   "show": true,
+   "style": "solid",
+   "bg": "#1e7a44",
+   "text": "#ffffff",
+   "radius": 24,
+   "align": "centre",
+   "width": "auto"
+  },
+  "footer": {
+   "place": "page",
+   "bg": "",
+   "text": "#3f5468",
+   "link": "#0b5394",
+   "align": "centre",
+   "layout": "stacked",
+   "rule": "",
+   "show": [
+    "address",
+    "phone",
+    "email",
+    "hours",
+    "links",
+    "social",
+    "smallprint"
+   ]
+  },
+  "social": {
+   "style": "badge",
+   "bg": "#123c69",
+   "text": "#ffffff",
+   "radius": 16,
+   "size": 32
+  },
+  "sections": [
+   "greeting",
+   "intro",
+   "items",
+   "alert",
+   "details",
+   "note",
+   "button",
+   "closing"
+  ]
+ },
+ {
+  "id": "public-library",
+  "name": "Public library",
+  "about": "Welcoming green, a tinted title band, stamped due dates and a full information footer.",
+  "page": {
+   "bg": "#f4f1ea",
+   "padTop": 20,
+   "padSide": 12
+  },
+  "card": {
+   "bg": "#ffffff",
+   "width": 600,
+   "radius": 0,
+   "border": "",
+   "topBar": "",
+   "topBarHeight": 4,
+   "padSide": 30
+  },
+  "type": {
+   "font": "arial",
+   "headingFont": "arial",
+   "size": 16,
+   "headingSize": 27,
+   "headingWeight": "bold",
+   "headingAlign": "left",
+   "text": "#23302a",
+   "muted": "#55625b",
+   "heading": "#14452f",
+   "link": "#1b6343"
+  },
+  "header": {
+   "show": true,
+   "place": "card",
+   "layout": "split",
+   "bg": "",
+   "text": "#14452f",
+   "padY": 20,
+   "name": true,
+   "nameSize": 20,
+   "nameCase": "none",
+   "tagline": true,
+   "taglineColour": "#55625b",
+   "logoHeight": 48,
+   "monogram": true,
+   "monogramBg": "#1b6343",
+   "monogramText": "#ffffff",
+   "monogramRadius": 4,
+   "rule": "",
+   "ruleStyle": "solid",
+   "ruleWidth": 1,
+   "stripe": [],
+   "banner": "",
+   "bannerAlt": ""
+  },
+  "hero": {
+   "style": "tint",
+   "bg": "#e1f0e6",
+   "text": "#14452f",
+   "kicker": true,
+   "kickerColour": "#1b6343",
+   "padY": 22
+  },
+  "items": {
+   "style": "list",
+   "fields": [
+    "title",
+    "author",
+    "callnumber",
+    "barcode",
+    "due",
+    "fine"
+   ],
+   "line": "#dfe5e0",
+   "bg": "",
+   "bar": "",
+   "barSide": "left",
+   "radius": 0,
+   "border": "",
+   "due": "stamp",
+   "dueBg": "#fbeccd",
+   "dueText": "#5e3f05",
+   "headBg": "",
+   "headText": ""
+  },
+  "box": {
+   "bg": "#f6f8f5",
+   "border": "",
+   "bar": "#1b6343",
+   "radius": 0,
+   "text": "#23302a"
+  },
+  "alert": {
+   "bg": "#fdf1ef",
+   "bar": "#b42318",
+   "text": "#7a1a12",
+   "radius": 0
+  },
+  "button": {
+   "show": true,
+   "style": "solid",
+   "bg": "#1b6343",
+   "text": "#ffffff",
+   "radius": 6,
+   "align": "left",
+   "width": "auto"
+  },
+  "footer": {
+   "place": "card",
+   "bg": "#14452f",
+   "text": "#d7e6dd",
+   "link": "#ffffff",
+   "align": "left",
+   "layout": "columns",
+   "rule": "",
+   "show": [
+    "address",
+    "phone",
+    "email",
+    "hours",
+    "links",
+    "social",
+    "smallprint"
+   ]
+  },
+  "social": {
+   "style": "text",
+   "bg": "",
+   "text": "",
+   "radius": 0,
+   "size": 32
+  },
+  "sections": [
+   "greeting",
+   "intro",
+   "items",
+   "alert",
+   "details",
+   "note",
+   "button",
+   "closing"
+  ]
+ },
+ {
+  "id": "dark-header",
+  "name": "Dark header",
+  "about": "Charcoal masthead and footer with an amber accent; a light, readable body.",
+  "page": {
+   "bg": "#dfe2e6",
+   "padTop": 24,
+   "padSide": 12
+  },
+  "card": {
+   "bg": "#ffffff",
+   "width": 600,
+   "radius": 6,
+   "border": "",
+   "topBar": "#f2a413",
+   "topBarHeight": 4,
+   "padSide": 32
+  },
+  "type": {
+   "font": "arial",
+   "headingFont": "arial",
+   "size": 16,
+   "headingSize": 28,
+   "headingWeight": "bold",
+   "headingAlign": "left",
+   "text": "#22272e",
+   "muted": "#57606a",
+   "heading": "#ffffff",
+   "link": "#8a4b00"
+  },
+  "header": {
+   "show": true,
+   "place": "card",
+   "layout": "split",
+   "bg": "#1b1f24",
+   "text": "#ffffff",
+   "padY": 20,
+   "name": true,
+   "nameSize": 18,
+   "nameCase": "none",
+   "tagline": true,
+   "taglineColour": "#b9c0c8",
+   "logoHeight": 48,
+   "monogram": true,
+   "monogramBg": "#ffd98a",
+   "monogramText": "#1b1f24",
+   "monogramRadius": 22,
+   "rule": "",
+   "ruleStyle": "solid",
+   "ruleWidth": 1,
+   "stripe": [],
+   "banner": "",
+   "bannerAlt": ""
+  },
+  "hero": {
+   "style": "solid",
+   "bg": "#1b1f24",
+   "text": "#ffffff",
+   "kicker": true,
+   "kickerColour": "#ffe9bf",
+   "padY": 24
+  },
+  "items": {
+   "style": "cards",
+   "fields": [
+    "title",
+    "author",
+    "callnumber",
+    "barcode",
+    "due",
+    "fine"
+   ],
+   "line": "#d9dee4",
+   "bg": "#ffffff",
+   "bar": "#f2a413",
+   "barSide": "top",
+   "radius": 0,
+   "border": "#d5d9de",
+   "due": "side",
+   "dueBg": "",
+   "dueText": "",
+   "headBg": "",
+   "headText": ""
+  },
+  "box": {
+   "bg": "#f3f4f6",
+   "border": "",
+   "bar": "#f2a413",
+   "radius": 0,
+   "text": "#22272e"
+  },
+  "alert": {
+   "bg": "#fff4e0",
+   "bar": "#b45309",
+   "text": "#6b3303",
+   "radius": 0
+  },
+  "button": {
+   "show": true,
+   "style": "solid",
+   "bg": "#8f4e00",
+   "text": "#ffffff",
+   "radius": 4,
+   "align": "left",
+   "width": "auto"
+  },
+  "footer": {
+   "place": "card",
+   "bg": "#1b1f24",
+   "text": "#b9c0c8",
+   "link": "#ffffff",
+   "align": "left",
+   "layout": "stacked",
+   "rule": "",
+   "show": [
+    "address",
+    "phone",
+    "email",
+    "hours",
+    "links",
+    "social",
+    "smallprint"
+   ]
+  },
+  "social": {
+   "style": "badge",
+   "bg": "#3a414a",
+   "text": "#ffffff",
+   "radius": 16,
+   "size": 32
+  },
+  "sections": [
+   "greeting",
+   "intro",
+   "items",
+   "alert",
+   "details",
+   "note",
+   "button",
+   "closing"
+  ]
+ }
+]

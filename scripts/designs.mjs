@@ -1,27 +1,63 @@
 // The same designs every time (seeded), with hard text in every place a person can type.
-import { DEFAULT, FONTS, SECTIONS } from '../src/compiler/design.ts'
+import { ADDED_FOR_PROOF } from './added.mjs'
+import { SPEC, SECTIONS, NO_LIBRARY, fromReady } from '../src/compiler/design.ts'
+import { READY } from '../src/compiler/ready.ts'
 
 export const HARD = [
   '', 'Lahore Public Library', `O'Brien & "Sons" <b>Library</b>`, 'C:\\new\\table $x ${branch.branchname} \\', '[% branch.branchname %] %] [%- STOP -%]',
-  '<<branches.branchname>> << x >> <<today>>', 'a ---- b -- c -----', 'کتب خانہ 図書館 📚', '&amp; &#91;% x %&#93; $1 $&', '# [# %] ; | END', 'line\r\n----\r\nbreak', "it's '\\' _ '",
+  '<<branches.branchname>> << x >> <<today>>', 'a ---- b -- c -----', 'کتب خانہ 図書館 📚', '&amp; &#91;% x %&#93; $1 $&', '# [# %] ; | END', 'line\r\n----\r\nbreak', "it's '\\' _ '", '{title} {?x}{/}', '----',
 ]
-const URLS = ['', 'https://example.org/l.png?a=1&b=2', "https://example.org/a'b%5D$x/(1).png", 'https://example.org/[%x%]?q=<<y>>&z=----', 'javascript:alert(1)', 'mailto:a@example.org', 'http://example.org/', 'not an address']
+export const URLS = ['', 'https://example.org/l.png?a=1&b=2', "https://example.org/a'b%5D$x/(1).png", 'https://example.org/[%x%]?q=<<y>>&z=----', 'javascript:alert(1)', 'mailto:a@example.org', 'http://example.org/', 'not an address']
 const COLOURS = ['#1f4e79', '#AB12cd', '#000000', 'red;} [% x %]', '']
+/** The library the pictures use: the same one the visual targets have. */
+export const SAMPLE_LIBRARY = {
+  ...NO_LIBRARY, tagline: 'Read, learn, meet', address: '1 Main Street, Riverside 12345', phone: '+1 555 0100', email: 'library@example.org', hours: 'Mon to Fri 9:00–18:00, Sat 10:00–14:00',
+  links: [{ label: 'Catalogue', href: 'https://library.example.org/' }, { label: 'My account', href: 'https://library.example.org/account' }, { label: 'Opening hours', href: 'https://library.example.org/hours' }],
+  social: ['Facebook', 'Instagram', 'YouTube'].map((network) => ({ network, href: `https://social.example/${network.toLowerCase()}` })),
+  smallprint: 'You receive this message because you have a library account with us.',
+}
+export const readyDesigns = () => READY.map((r) => ({ ...fromReady(r), id: r.id, perLibrary: SAMPLE_LIBRARY }))
 
-export function designs(n) {
-  let s = 20261124
+function roll(seed) {
+  let s = seed
   const rnd = (k) => { s = (Math.imul(s, 1664525) + 1013904223) >>> 0; return Math.floor((s / 4294967296) * k) }
   const pick = (l) => l[rnd(l.length)]
+  return { rnd, pick }
+}
+export function randomDesigns(n) {
+  const { rnd, pick } = roll(20261124)
+  const val = (r) => {
+    if (rnd(25) === 0) return pick([null, NaN, 'x', [], {}, 'constructor'])
+    switch (r.is) {
+      case 'colour': case 'colour?': return pick(COLOURS)
+      case 'px': return pick([r.min, r.max, r.min - 9, r.max + 99, r.min + rnd(r.max - r.min)])
+      case 'bool': return rnd(2) === 0
+      case 'one': return pick(r.of)
+      case 'list': return [...r.of].sort(() => rnd(3) - 1).slice(0, rnd(r.of.length + 1))
+      case 'colours': return Array.from({ length: rnd(4) }, () => pick(COLOURS))
+      case 'https': return pick(URLS)
+      case 'text': return pick(HARD)
+    }
+  }
+  const words = () => (rnd(2) ? pick(HARD) : [pick(HARD), { field: pick(['library', 'firstname', 'count', 'nothing', 'title']) }, pick(HARD)])
   const links = () => Array.from({ length: rnd(4) }, () => ({ label: pick(HARD), href: pick(URLS) }))
-  const out = [DEFAULT]
-  while (out.length < n)
-    out.push({
-      libraryName: pick(HARD), logo: pick(URLS), headerLayout: pick(['bar', 'band', 'centred', 'x']),
-      headerColour: pick(COLOURS), headerText: pick(COLOURS), pageColour: pick(COLOURS), bodyColour: pick(COLOURS), textColour: pick(COLOURS), linkColour: pick(COLOURS),
-      font: pick([...Object.keys(FONTS), 'constructor']), fontSize: pick([14, 16, 99, NaN]), width: pick([480, 600, 9999]), radius: pick([0, 12, -3]),
-      order: [...SECTIONS].sort(() => rnd(3) - 1).slice(0, 1 + rnd(5)),
-      wording: { intro: pick(HARD), account: pick(HARD), closing: pick(HARD) },
-      footerText: pick(HARD), footerLinks: links(), social: links(),
-    })
-  return out
+  const look = () => Object.fromEntries(Object.entries(SPEC).map(([g, rules]) => [g, Object.fromEntries(Object.entries(rules).map(([k, r]) => [k, val(r)]))]))
+  const sections = () => [...SECTIONS, ...ADDED_FOR_PROOF(pick, rnd)].sort(() => rnd(3) - 1).slice(0, 2 + rnd(12))
+  const choice = () => ({
+    subject: words(), preheader: words(), kicker: words(), title: words(), wording: { greeting: words(), intro: words(), note: words(), button: words(), closing: words() },
+    overrides: { header: { layout: pick(['centre', 'split']) }, sections: sections() },
+  })
+  return Array.from({ length: n }, () => ({
+    ...look(), sections: sections(),
+    perLibrary: { name: pick(HARD), tagline: pick(HARD), logo: pick(URLS), logoAlt: pick(HARD), address: pick(HARD), phone: pick(HARD), email: pick(['a@example.org', ...HARD]), hours: pick(HARD), links: links(), social: links().map((l) => ({ network: l.label, href: l.href, icon: pick(URLS) })), smallprint: pick(HARD) },
+    perNotice: Object.fromEntries(['CHECKOUT', 'HOLD', 'ODUE', 'AUTO_RENEWALS', 'AUTO_RENEWALS_DGST', 'WELCOME', 'PASSWORD_RESET', 'HOLDDGST', 'DUEDGST'].map((c) => [c, choice()])),
+  }))
+}
+/** Every hard text in every place at once: one design for each text. */
+export function hardDesigns() {
+  return HARD.filter(Boolean).map((v, i) => {
+    const r = READY[i % READY.length]
+    const w = { subject: v, preheader: v, kicker: v, title: v, wording: { greeting: v, intro: v, note: v, button: v, closing: v } }
+    return { ...fromReady(r), perLibrary: { ...SAMPLE_LIBRARY, name: v, tagline: v, logoAlt: v, logo: i % 2 ? URLS[1 + (i % 3)] : '', address: v, phone: v, hours: v, smallprint: v, links: [{ label: v, href: URLS[1 + (i % 3)] }], social: [{ network: v, href: URLS[3], icon: URLS[2] }] }, perNotice: new Proxy({}, { getOwnPropertyDescriptor: () => ({ value: w, configurable: true, enumerable: true }), get: () => w }) }
+  })
 }

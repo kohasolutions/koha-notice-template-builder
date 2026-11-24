@@ -10,6 +10,7 @@
 | `src/compiler/` | `compile(notice, design)`: the Template Toolkit text for Koha and the preview, from one tree ([COMPILER.md](COMPILER.md)) |
 | `src/Builder.tsx` | the React component |
 | `scripts/prove.mjs` | lets a real Koha run the compiled text and requires its message to equal the preview |
+| `scripts/look.mjs` | contrast, overflow and markup checks on every compiled notice, and pictures |
 | `scripts/offline-check.mjs` | opens the built file from the disk with the network refused |
 
 `npm ci`, then `npm run build` writes `dist/index.html`. `npm test`, `npm run lint`, `npm run typecheck`.
