@@ -6,12 +6,12 @@ cd "$(dirname "$0")/.." || exit 2
 OUT=out/mutate; mkdir -p "$OUT"; : > "$OUT/summary.txt"
 proof() { NO_WRITE=1 node scripts/prove.mjs --random=4 --only="$2" > "$OUT/$1.log" 2>&1; echo $?; }
 mutate() { # name file old new notices
-  local name=$1 f=$2; cp "$f" "$OUT/orig"
+  local name=$1 f=$2; cp "$f" "$OUT/orig"; CUR=$f
   python3 -c "import sys;p,o,n=sys.argv[1:];s=open(p).read();assert o in s,'missing '+o;open(p,'w').write(s.replace(o,n,1))" "$f" "$3" "$4" || { echo "$name: patch failed" | tee -a "$OUT/summary.txt"; return; }
-  local rc; rc=$(proof "$name" "$5"); cp "$OUT/orig" "$f"
+  local rc; rc=$(proof "$name" "$5"); cp "$OUT/orig" "$f"; CUR=
   echo "$name exit $rc: $(grep -E 'equal to the preview|Error' "$OUT/$name.log" | head -1 | cut -c1-160)" | tee -a "$OUT/summary.txt"
 }
-trap 'git checkout -- src/compiler' EXIT
+CUR=; trap '[ -n "$CUR" ] && cp "$OUT/orig" "$CUR"' EXIT   # an interrupted run puts the broken file back
 SET=CHECKOUT,ODUE,PREDUEDGST,ISSUESLIP,PASSWORD_RESET
 E=src/compiler/escape.ts; P=src/compiler/print.ts
 echo "baseline exit $(proof baseline $SET)" | tee -a "$OUT/summary.txt"
