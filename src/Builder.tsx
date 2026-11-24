@@ -12,10 +12,12 @@ import { fromHash, holdsDesign, shareLink } from './builder/share.ts'
 import { initial, KOHA, reduce } from './builder/state.ts'
 import { CSS } from './builder/styles.ts'
 import { DESIGN_NAME, makeZip, ZIP_NAME } from './builder/zip.ts'
+import { NOTICES } from './notices/data.ts'
 import templates from './vendor/index.json'
 
-function first(): History {
-  const s = initial()
+function first(open: string | undefined): History {
+  const from = initial()
+  const s = open && NOTICES.some((n) => n.code === open) ? reduce(from, { type: 'notice', code: open }) : from
   const saved = loadStored()
   return start(saved ? reduce(s, { type: 'load', ...saved }) : s)
 }
@@ -35,8 +37,9 @@ function save(data: BlobPart, type: string, name: string) {
 /** Ctrl+Z belongs to a field while a person types in one. */
 const typing = (t: EventTarget | null) => t instanceof HTMLElement && (t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName))
 
-export function Builder() {
-  const [h, dispatch] = useReducer(step, undefined, first)
+/** embedded: inside a page that has its own heading. */
+export function Builder({ embedded = false, notice: open }: { embedded?: boolean; notice?: string }) {
+  const [h, dispatch] = useReducer(step, open, first)
   const state = h.now
   const [keeps] = useState(canKeep)
   const [message, setMessage] = useState('')
@@ -101,11 +104,15 @@ export function Builder() {
   }
 
   return (
-    <div className="kntb">
+    <div className={embedded ? 'kntb kntb-embedded' : 'kntb'}>
       <style>{CSS}</style>
       <header className="kntb-top">
-        <h1>Live notice template builder for Koha</h1>
-        <p>Make every Koha notice look like your library, see it as patrons will, and paste it into Koha.</p>
+        {embedded ? null : (
+          <>
+            <h1>Live notice template builder for Koha</h1>
+            <p>Make every Koha notice look like your library, see it as patrons will, and paste it into Koha.</p>
+          </>
+        )}
         <div className="kntb-seg kntb-screens" role="group" aria-label="Screen">
           <button type="button" aria-pressed={screen === 'ready'} onClick={() => { go('ready') }}>Ready templates</button>
           <button type="button" aria-pressed={screen === 'edit'} onClick={() => { go('edit') }}>Full editor</button>

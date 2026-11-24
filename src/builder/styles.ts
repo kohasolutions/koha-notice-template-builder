@@ -3,7 +3,9 @@
 export const CSS = `
 .kntb{--bg:#f6f7f9;--panel:#fff;--text:#1d2430;--muted:#5b6575;--line:#d9dee6;--accent:#1f5fae;--accent-text:#fff;--warn:#8a4b00;--warn-bg:#fff4e0;
   color-scheme:light;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh}
-@media (prefers-color-scheme:dark){.kntb{--bg:#14171c;--panel:#1d2128;--text:#e6e9ee;--muted:#a4adba;--line:#343a44;--accent:#7fb0ff;--accent-text:#0b1220;--warn:#ffcc80;--warn-bg:#3a2a10;color-scheme:dark}}
+@media (prefers-color-scheme:dark){.kntb:not(.kntb-embedded){--bg:#14171c;--panel:#1d2128;--text:#e6e9ee;--muted:#a4adba;--line:#343a44;--accent:#7fb0ff;--accent-text:#0b1220;--warn:#ffcc80;--warn-bg:#3a2a10;color-scheme:dark}}
+.dark .kntb-embedded{--bg:#14171c;--panel:#1d2128;--text:#e6e9ee;--muted:#a4adba;--line:#343a44;--accent:#7fb0ff;--accent-text:#0b1220;--warn:#ffcc80;--warn-bg:#3a2a10;color-scheme:dark}
+.kntb-embedded{min-height:0;border:1px solid var(--line);border-radius:12px;overflow:clip}
 .kntb *,.kntb *::before,.kntb *::after{box-sizing:border-box}
 .kntb header.kntb-top{padding:16px;border-bottom:1px solid var(--line);background:var(--panel)}
 .kntb h1{font-size:20px;margin:0}

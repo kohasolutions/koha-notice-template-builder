@@ -34,7 +34,16 @@ function notices(ids: Iterable<string>): string {
   return `\n<!--\nThird-party licences\n\n${parts.join('\n\n----\n\n').replaceAll('-->', '-- >')}\n-->\n`
 }
 
-export default defineConfig({
+const version = (JSON.parse(readFileSync('package.json', 'utf8')) as { version: string }).version
+/** The script for a page (vite build --mode embed): the licences are a comment at its end, the source is named at its start. */
+const embed = defineConfig({
+  plugins: [react(), { name: 'licence', enforce: 'post', generateBundle(_o, bundle) {
+    for (const f of Object.values(bundle)) if (f.type === 'chunk') f.code = `/*!\n${NOTICE.replace('<!--', '').replace('-->', '').trim()}\n*/\n${f.code}\n/*!${notices(f.moduleIds).replace('<!--', '').replace('-->', '').replaceAll('*/', '* /')}*/\n`
+  } }],
+  define: { 'process.env.NODE_ENV': JSON.stringify('production') },
+  build: { outDir: 'dist/embed', emptyOutDir: true, license: false, lib: { entry: 'src/embed.tsx', formats: ['iife'], name: 'KohaNoticeBuilderBundle', fileName: () => `koha-notice-builder-${version}.js` } },
+})
+const page = defineConfig({
   plugins: [react(), viteSingleFile(), { name: 'licence', enforce: 'post', generateBundle(_o, bundle) {
     const ids = Object.values(bundle).flatMap((f) => (f.type === 'chunk' ? f.moduleIds : []))
     for (const f of Object.values(bundle)) if (f.type === 'asset' && f.fileName.endsWith('.html')) f.source = String(f.source).replace('<head>', `<head>\n${NOTICE}`) + notices(ids)
@@ -42,3 +51,5 @@ export default defineConfig({
   build: { modulePreload: false, license: false },
   test: { include: ['tests/**/*.test.ts'] },
 })
+
+export default defineConfig(({ mode }) => (mode === 'embed' ? embed : page))
