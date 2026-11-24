@@ -3080,7 +3080,7 @@
       "contact": "+1 555 0100",
       "surname": "Reader",
       "card": "KNT-0001",
-      "now": "11/24/2026 07:56",
+      "now": "11/24/2026 08:52",
       "hasLoans": "2",
       "loans": "2",
       "hasLate": "1",
@@ -3091,12 +3091,12 @@
        {
         "title": "The ideas behind the chess openings",
         "barcode": "KNT-ITEM-2",
-        "due": "12/08/2026"
+        "due": "11/29/2026"
        },
        {
         "title": "E Street shuffle",
         "barcode": "KNT-ITEM-1",
-        "due": "12/08/2026"
+        "due": "11/29/2026"
        }
       ],
       "over": [

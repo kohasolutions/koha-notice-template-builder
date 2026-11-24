@@ -81,6 +81,16 @@ probes.forEach(({ n, c, f }, i) => (((samples[n.code] ??= {})[c.case || 'only'] 
 if (!process.env.NO_WRITE) writeFileSync(file, JSON.stringify({ koha: first.koha, samples }, null, 1) + '\n')
 if (process.argv.includes('--capture')) process.exit(0)
 
+const permutations = (a) => (a.length < 2 ? [a] : a.flatMap((x, i) => permutations([...a.slice(0, i), ...a.slice(i + 1)]).map((r) => [x, ...r])))
+// the only notice whose rows Koha lists in no fixed order; every other notice must match row for row
+const UNORDERED = { AUTO_RENEWALS_DGST: 'items' }
+function digestOrders(n, s) {
+  let all = [s]
+  for (const id of Object.keys(n.loops))
+    if (UNORDERED[n.code] === id && s.loops[id].length <= 4) all = all.flatMap((o) => permutations(o.loops[id]).map((rows) => ({ ...o, loops: { ...o.loops, [id]: rows } })))
+  return all
+}
+
 const ready = readyDesigns(), random = randomDesigns(Number(arg('random', '20'))), hard = hardDesigns()
 const jobs = [], want = []
 for (const n of notices)
@@ -92,7 +102,10 @@ for (const n of notices)
         const s = samples[n.code][c.case || 'only'][format === 'print' ? 'print' : 'email']
         const out = compile(n, d, format), sub = compileSubject(n, d)
         jobs.push(job(n, c, format, out.koha, sub.koha))
-        want.push({ id: `${n.code} ${c.case} ${format} design ${i} ${d.id ?? 'random'}`, kind: ready.includes(d) ? 'ready' : 'random/hard', format, text: out.sample(s), subject: format === 'html' || format === 'text' ? sub.sample(s) : null })
+        // a digest's loans come in no fixed order (automatic_renewals.pl sorts by patron only, koha-src
+        // misc/cronjobs/automatic_renewals.pl:137-146), so every order of the sample's rows is an equal answer
+        const orders = digestOrders(n, s).map((o) => out.sample(o))
+        want.push({ id: `${n.code} ${c.case} ${format} design ${i} ${d.id ?? 'random'}`, kind: ready.includes(d) ? 'ready' : 'random/hard', format, text: orders[0], orders, subject: format === 'html' || format === 'text' ? sub.sample(s) : null })
       }
     }
 // the only things that differ from run to run: the minute on the slip and the one-time key in the reset link
@@ -104,10 +117,10 @@ mkdirSync(new URL('../out/', import.meta.url), { recursive: true })
 got.results.forEach((r, i) => {
   const w = want[i], t = (counts[`${w.format} ${w.kind}`] ??= [0, 0])
   t[1]++
-  const body = same(r.content ?? '') === same(w.text)
+  const body = w.orders.some((t) => same(r.content ?? '') === same(t))
   const title = w.subject === null || same(r.subject ?? '') === same(w.subject)
   if (body && title) return void t[0]++
-  if (++failed <= 4) {
+  if (++failed <= 40) {
     const a = same(r.content ?? ''), b = same(w.text)
     let k = 0
     while (k < a.length && a[k] === b[k]) k++
