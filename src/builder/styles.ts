@@ -11,7 +11,7 @@ export const CSS = `
 .kntb h1{font-size:20px;margin:0}
 .kntb-top p{margin:4px 0 0;color:var(--muted)}
 .kntb-main{display:grid;grid-template-columns:minmax(300px,380px) 1fr;gap:0;align-items:start}
-.kntb-controls{padding:12px;border-right:1px solid var(--line);max-height:calc(100vh - 0px);overflow:auto;position:sticky;top:0}
+.kntb-controls{padding:12px;border-right:1px solid var(--line);max-height:calc(100vh - var(--kntb-top,0px));overflow:auto;position:sticky;top:var(--kntb-top,0px)}
 .kntb-panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin-bottom:10px}
 .kntb-panel>summary{cursor:pointer;padding:12px 14px;font-weight:600;list-style-position:inside}
 .kntb-panel-body{padding:0 14px 14px}
@@ -72,7 +72,8 @@ export const CSS = `
 .kntb-offer{margin:12px 16px 0;padding:12px 14px;background:var(--panel);border:2px solid var(--accent);border-radius:8px}
 .kntb-offer p{margin:0 0 8px}
 .kntb-koha{margin-top:16px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
-.kntb h2{font-size:16px;margin:0}
+.kntb h2{font-size:16px;font-weight:700;margin:0}
+.kntb .kntb-koha>p{margin:8px 0}
 .kntb-koha details{margin-top:8px}
 .kntb-koha summary{cursor:pointer;font-size:13px;font-weight:600}
 .kntb-koha+.kntb-frames{margin-top:16px}
@@ -116,8 +117,8 @@ export const CSS = `
 .kntb-foot a{color:var(--accent)}
 @media (max-width:860px){.kntb-main{grid-template-columns:1fr}.kntb-controls{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line)}
   .kntb-notice-group{grid-template-columns:1fr;gap:4px}.kntb-notice-menu{padding-top:0}.kntb-gallery{display:flex;overflow-x:auto}.kntb-thumb{flex:0 0 236px}
-  .kntb-jump{display:flex;position:sticky;top:0;z-index:2;gap:8px;padding:8px 12px;background:var(--panel);border-bottom:1px solid var(--line)}
+  .kntb-jump{display:flex;position:sticky;top:var(--kntb-top,0px);z-index:2;gap:8px;padding:8px 12px;background:var(--panel);border-bottom:1px solid var(--line)}
   .kntb-jump a{flex:1;text-align:center;padding:8px;border:1px solid var(--line);border-radius:6px;color:var(--text);text-decoration:none;font-weight:600}
-  .kntb-controls,.kntb-preview{scroll-margin-top:56px}
+  .kntb-controls,.kntb-preview{scroll-margin-top:calc(60px + var(--kntb-top,0px))}
   .kntb-toolbar>label{width:100%}}
 `
