@@ -1,3 +1,5 @@
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import react from '@vitejs/plugin-react'
 import { viteSingleFile } from 'vite-plugin-singlefile'
 import { defineConfig } from 'vitest/config'
@@ -9,12 +11,33 @@ const NOTICE = `<!--
   Source: https://github.com/kohasolutions/koha-notice-template-builder
   The notices inside come from https://github.com/kohasolutions/koha-notice-templates (GPL-3.0-or-later),
   adapted from Koha's own notices: https://koha-community.org/
-  Includes React (MIT, (c) Meta Platforms, Inc. and affiliates): https://react.dev/
+  It includes other people's open-source code; their licences are at the end of this file.
 -->\n`
+
+/** The package a bundled file belongs to, from its path in node_modules. */
+function packageDir(id: string): string | null {
+  const at = id.lastIndexOf('/node_modules/')
+  if (at < 0) return null
+  const rest = id.slice(at + '/node_modules/'.length).split('/')
+  const name = rest[0]?.startsWith('@') ? rest.slice(0, 2).join('/') : rest[0]
+  return name ? join(id.slice(0, at), 'node_modules', name) : null
+}
+/** Every bundled package's name, version, licence and licence text, as one HTML comment. */
+function notices(ids: Iterable<string>): string {
+  const dirs = [...new Set([...ids].map((i) => packageDir(i.replace(/^\0/, '').split('?')[0] ?? '')).filter((d): d is string => d !== null))].sort()
+  const parts = dirs.map((d) => {
+    const pkg = JSON.parse(readFileSync(join(d, 'package.json'), 'utf8')) as { name: string; version: string; license?: string }
+    const file = existsSync(d) ? readdirSync(d).find((f) => /^(licen[cs]e|copying)(\.|$)/i.test(f)) : undefined
+    if (!file) throw new Error(`${pkg.name} is bundled but has no licence file`)
+    return `${pkg.name} ${pkg.version} (${pkg.license ?? 'see below'})\n\n${readFileSync(join(d, file), 'utf8').trim()}`
+  })
+  return `\n<!--\nThird-party licences\n\n${parts.join('\n\n----\n\n').replaceAll('-->', '-- >')}\n-->\n`
+}
 
 export default defineConfig({
   plugins: [react(), viteSingleFile(), { name: 'licence', enforce: 'post', generateBundle(_o, bundle) {
-    for (const f of Object.values(bundle)) if (f.type === 'asset' && f.fileName.endsWith('.html')) f.source = String(f.source).replace('<head>', `<head>\n${NOTICE}`)
+    const ids = Object.values(bundle).flatMap((f) => (f.type === 'chunk' ? f.moduleIds : []))
+    for (const f of Object.values(bundle)) if (f.type === 'asset' && f.fileName.endsWith('.html')) f.source = String(f.source).replace('<head>', `<head>\n${NOTICE}`) + notices(ids)
   } }],
   build: { modulePreload: false, license: false },
   test: { include: ['tests/**/*.test.ts'] },

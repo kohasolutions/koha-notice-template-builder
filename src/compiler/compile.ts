@@ -43,6 +43,9 @@ export function words(w: Words | undefined, notice: Notice): Node[] | null {
   return nodes.some((x) => x.kind === 'field' || (x.kind === 'text' && x.value.trim() !== '')) ? nodes : null
 }
 
+/** The closing line of every notice, unless the library writes its own. */
+export const CLOSING = 'Thank you,'
+
 export function ready(notice: Notice, input: Design): Ready {
   const design = safe(input, BASE, notice.code)
   const mine = Object.hasOwn(design.perNotice, notice.code) ? design.perNotice[notice.code] : undefined
@@ -61,7 +64,7 @@ export function ready(notice: Notice, input: Design): Ready {
     intro: own(mine?.wording?.intro, notice.intro),
     notes: notes ? [{ nodes: notes }] : notice.notes.map((l) => ({ ...(l.if ? { if: l.if } : {}), nodes: parse(l.text) })),
     buttonLabel: notice.button ? own(mine?.wording?.button, notice.button.label) : [],
-    closing: own(mine?.wording?.closing, 'Thank you,'),
+    closing: own(mine?.wording?.closing, CLOSING),
   }
 }
 
@@ -85,8 +88,10 @@ export function compile(notice: Notice, design: Design, format: Format = 'html')
 }
 /** Koha keeps the subject of a notice, as pasted, in 200 characters. */
 export const SUBJECT_MAX = 200
+const ownSubject = (notice: Notice, design: Design): Compiled => output(ready(notice, design).subject, notice, 'text')
+/** Whether the subject as written (the library's, or the standard one) is more than Koha keeps. */
+export const subjectTooLong = (notice: Notice, design: Design): boolean => Array.from(ownSubject(notice, design).koha).length > SUBJECT_MAX
 /** Typed words that do not fit leave the notice its standard subject. */
 export function compileSubject(notice: Notice, design: Design): Compiled {
-  const own = output(ready(notice, design).subject, notice, 'text')
-  return Array.from(own.koha).length <= SUBJECT_MAX ? own : output(parse(notice.subject), notice, 'text')
+  return subjectTooLong(notice, design) ? output(parse(notice.subject), notice, 'text') : ownSubject(notice, design)
 }

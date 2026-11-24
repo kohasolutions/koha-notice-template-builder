@@ -28,8 +28,18 @@ social style; live preview of all 18 notices × every situation Koha printed × 
 forced-dark approximation, the subject, and the template for Koha with where to paste it. Narrow screens get a sticky
 Settings / Preview switch. Offline check drives it (design click, a colour reaching the template, SMS, logo).
 
+P4 is done: per-notice changes (a "Changes below apply to" switch; effective() shows the notice's own values; remove
+them in one click), Sections (drag with dnd-kit, arrows for the keyboard, hide/show, copy, add text, notice box,
+divider, space, image, button, two columns), the wording of every notice (Tiptap; Koha values as chips from a list;
+empty = the standard words, shown as the placeholder), undo/redo (history.ts: typing in one field is one step; undo
+never changes the notice on screen), kept in the browser, design file save/open (file.ts read(): only the shape of a
+design is kept, tested with hostile input), warnings (WCAG contrast per text/background pair, SMS parts in GSM-7 or
+UCS-2, a subject over Koha's 200 characters). Checks: 79 unit tests (10/10 mutations caught), `npm run test:ui`
+(scripts/builder-check.mjs drives all of it in the built file, drag included), the offline check. The single file is
+980 kB (253 kB gzipped) with the editors, and ends with every bundled package's licence.
+
 To do next:
-1. P4: sections (drag, @dnd-kit/react), wording editor with Koha value chips (@tiptap/core), per-notice changes,
-   undo/redo, saved in the browser, design file export/import, warnings (contrast, broken logo, SMS length).
-2. P5: copy, zip, share link, accessibility pass, Playwright suite. P6: Gmail/Outlook, website page, v1.0.0.
+1. P5: copy buttons, download all as a zip with instructions, share link (design in the URL fragment), accessibility
+   pass (axe), the Playwright suite (fold test:ui and test:offline into it).
+2. P6: Gmail and Outlook (owner's test accounts), the website page with SEO, public v1.0.0 of both repositories.
 Not done: Gmail and Outlook, striped rows (not possible in a digest), Koha addresses in the footer.

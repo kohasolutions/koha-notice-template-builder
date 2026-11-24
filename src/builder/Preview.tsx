@@ -9,6 +9,7 @@ import templates from '../vendor/templates.json'
 import { FORMAT_NAME } from './labels.ts'
 import type { Action, State, View } from './state.ts'
 import { notice, sampleFor, situationName, situations } from './state.ts'
+import { warnings } from './warnings.ts'
 
 const WIDTH = { phone: 390, desktop: 740 } as const
 const MODULE = Object.fromEntries(templates.notices.map((n) => [n.code, n.menu]))
@@ -49,6 +50,7 @@ export function Preview({ state, dispatch }: { state: State; dispatch: Dispatch<
     const subject = state.format === 'html' || state.format === 'text' ? compileSubject(n, state.design) : null
     return { koha: c.koha, shown: c.sample(sample), subject: subject?.sample(sample) ?? null, subjectKoha: subject?.koha ?? null }
   }, [n, state.design, state.format, sample])
+  const warned = useMemo(() => warnings(state.design, state.code), [state.design, state.code])
   const views: Array<Exclude<View, 'both'>> = state.view === 'both' ? ['phone', 'desktop'] : [state.view]
   const html = state.format === 'html' || state.format === 'print'
 
@@ -82,6 +84,11 @@ export function Preview({ state, dispatch }: { state: State; dispatch: Dispatch<
 
       {!out ? <p className="kntb-warn">Koha printed no sample for this situation.</p> : (
         <>
+          {warned.length ? (
+            <ul className="kntb-warnings" aria-label={`Warnings for ${n.name}`}>
+              {warned.map((w) => <li key={w.id}>{w.text}</li>)}
+            </ul>
+          ) : null}
           {out.subject !== null ? <p className="kntb-subject"><span>Subject</span> {out.subject}</p> : null}
           <div className="kntb-frames">
             {html

@@ -69,6 +69,25 @@ export const CSS = `
 .kntb-koha summary{cursor:pointer;font-weight:600}
 .kntb-koha label{display:block;font-size:13px;font-weight:600;margin-top:8px}
 .kntb-koha textarea{margin-top:4px}
+.kntb-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.kntb-status{color:var(--muted);font-size:13px}
+.kntb-scope{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-bottom:10px}
+.kntb-scope label{display:flex;gap:6px;align-items:center;font-weight:400;margin:2px 0}
+.kntb-label{display:block;font-size:13px;font-weight:600;margin-bottom:3px}
+.kntb-words{position:relative;min-height:36px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--text);line-height:1.6;outline:none;overflow-wrap:anywhere}
+.kntb-words:focus{outline:3px solid var(--accent);outline-offset:2px}
+.kntb-words p{margin:0}
+.kntb-words p.is-editor-empty:first-child::before{content:attr(data-placeholder);color:var(--muted);position:absolute;left:8px;right:8px;top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
+.kntb-chip{display:inline-block;padding:0 6px;margin:0 1px;border-radius:10px;background:var(--accent);color:var(--accent-text);font-size:13px;line-height:1.5;white-space:nowrap}
+.kntb-chip.ProseMirror-selectednode{outline:2px solid var(--text)}
+.kntb .kntb-field>.kntb-row>select{width:auto!important;margin-top:4px}
+.kntb-sections{list-style:none;margin:0 0 10px;padding:0}
+.kntb-section{border:1px solid var(--line);border-radius:6px;padding:6px 8px;margin-bottom:6px;background:var(--panel)}
+.kntb-section.kntb-dragging{opacity:.6}
+.kntb-grow{flex:1;min-width:0;font-size:14px}
+.kntb .kntb-grip{cursor:grab;min-height:32px;padding:0 8px;touch-action:none}
+.kntb-added{padding-top:8px}
+.kntb-warnings{margin:0 0 12px;padding:8px 10px 8px 28px;background:var(--warn-bg);color:var(--warn);border-radius:6px;font-size:14px}
 .kntb-foot{padding:16px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
 .kntb-foot a{color:var(--accent)}
 @media (max-width:860px){.kntb-main{grid-template-columns:1fr}.kntb-controls{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line)}

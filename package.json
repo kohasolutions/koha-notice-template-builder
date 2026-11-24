@@ -14,9 +14,18 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:offline": "node scripts/offline-check.mjs",
-    "templates:check": "node scripts/import-templates.mjs --check"
+    "templates:check": "node scripts/import-templates.mjs --check",
+    "test:ui": "node scripts/builder-check.mjs"
   },
   "dependencies": {
+    "@dnd-kit/react": "0.5.3",
+    "@tiptap/core": "3.33.1",
+    "@tiptap/extension-document": "3.33.1",
+    "@tiptap/extension-paragraph": "3.33.1",
+    "@tiptap/extension-text": "3.33.1",
+    "@tiptap/extensions": "3.33.1",
+    "@tiptap/pm": "3.33.1",
+    "@tiptap/react": "3.33.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },

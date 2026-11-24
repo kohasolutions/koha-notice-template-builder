@@ -42,5 +42,8 @@ overflow at 320, 390 and 740, small text, pictures and forbidden markup on the s
 
 ## Importing it
 
-`src/Builder.tsx` depends only on React 19 and the compiler, so a Next.js 16 page can import it as a client component.
-React was chosen for that reason; the compiler itself has no dependencies.
+`src/Builder.tsx` depends on React 19, the compiler, Tiptap (the wording editor: a Koha value is a chip, never typed
+code) and dnd-kit (dragging sections; the arrow buttons do the same from a keyboard), all MIT and pinned exactly. A
+Next.js 16 page can import it as a client component (Tiptap is set not to render on the server; browser storage is read
+in try/catch). The compiler itself has no dependencies. The single file carries every bundled package's licence text
+at its end (vite.config.ts).
