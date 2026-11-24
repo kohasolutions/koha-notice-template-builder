@@ -1,0 +1,8 @@
+{
+  "source": "https://github.com/kohasolutions/koha-notice-templates",
+  "version": null,
+  "provisional": true,
+  "commit": "2ea3d2d1cf589c56e7be97a2cc6ca745c0890493",
+  "bundle_sha256": "6a004a206171a607267fbc539d6d96f401b7e6cba9e7bf3844fed0ae8b10ffe6",
+  "vendored_sha256": "1e6c4b3067277b01ae04060694726000d64a96720ea284095bad5ae9210ad3b4"
+}

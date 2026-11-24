@@ -1,0 +1,41 @@
+{
+  "koha": "26.05.02.002",
+  "samples": {
+    "CHECKOUT": {
+      "fields": {
+        "library": "Riverside Library",
+        "firstname": "Jane",
+        "opac": "http://kohadev.myDNSname.org:8080"
+      },
+      "items": [
+        {
+          "title": "E Street shuffle",
+          "author": "Heylin, Clinton",
+          "due": "11/29/2026",
+          "barcode": "KNT-ITEM-1",
+          "hasAuthor": "Heylin, Clinton."
+        },
+        {
+          "title": "The ideas behind the chess openings",
+          "author": "Fine, Reuben",
+          "due": "11/29/2026",
+          "barcode": "KNT-ITEM-2",
+          "hasAuthor": "Fine, Reuben,"
+        }
+      ]
+    },
+    "HOLD": {
+      "fields": {
+        "library": "Riverside Library",
+        "firstname": "Jane",
+        "opac": "http://kohadev.myDNSname.org:8080",
+        "title": "E Street shuffle",
+        "deadline": "12/01/2026",
+        "hasDeadline": "2026-12-01",
+        "phone": "+1 555 0100",
+        "address2": ""
+      },
+      "items": []
+    }
+  }
+}
