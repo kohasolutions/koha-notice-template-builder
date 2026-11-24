@@ -18,7 +18,8 @@ cannot be seen through Koha: the preview and Koha print the same unescaped quote
 unit-test survivor (no separator after a fact that is always there) now has its test.
 Looks: 430/430 with the new button labels; pictures retaken (out/look).
 
-To do, in this order:
-1. Merge render-cache-flush in koha-notice-templates, then pin the templates again (`scripts/import-templates.mjs`).
-2. Then P3: the builder's screen. One source of truth for the wording: COMPILER.md.
+Templates pinned at ba90afc (koha-notice-templates main, with the cache fix merged); 18 notices.
+
+To do next:
+1. P3: the builder's screen. One source of truth for the wording: COMPILER.md.
 Not done: Gmail and Outlook, striped rows (not possible in a digest), Koha addresses in the footer.
