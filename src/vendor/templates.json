@@ -1,7 +1,7 @@
 {
  "licence": "GPL-3.0-or-later",
  "source": "https://github.com/kohasolutions/koha-notice-templates",
- "commit": "ba90afccdc4b73a6f973c688900608dd3d71a33b",
+ "commit": "d350e7f8f9d6073a0416c9f893f15148ff56ef9d",
  "koha": "26.05.02.002",
  "notices": [
   {

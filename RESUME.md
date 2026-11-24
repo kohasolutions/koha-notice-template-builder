@@ -18,7 +18,7 @@ cannot be seen through Koha: the preview and Koha print the same unescaped quote
 unit-test survivor (no separator after a fact that is always there) now has its test.
 Looks: 430/430 with the new button labels; pictures retaken (out/look).
 
-Templates pinned at ba90afc (koha-notice-templates main, with the cache fix merged); 18 notices.
+Templates pinned at d350e7f (koha-notice-templates main, with the cache fix merged); 18 notices.
 
 P3 (the builder's screen) is done: src/Builder.tsx + src/builder/. The look panels are made from SPEC (controls.tsx: one
 control per kind of rule), so a new setting needs only its words in labels.ts; tests/builder.test.ts fails without
