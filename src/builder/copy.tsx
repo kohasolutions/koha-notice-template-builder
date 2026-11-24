@@ -39,7 +39,7 @@ export function CopyButton({ text, label }: { text: string; label: string }) {
   return (
     <span className="kntb-copy">
       <button type="button" className="kntb-primary" onClick={() => { void copyText(text).then((ok) => { setDone({ text, ok }) }) }}>{label}</button>
-      <span role="status" className="kntb-status">{now ? (now.ok ? 'Copied' : 'Not copied: select the text below and press Ctrl+C.') : ''}</span>
+      <span role="status" className="kntb-status">{now ? (now.ok ? 'Copied' : 'Not copied: select the text of the code below and press Ctrl+C.') : ''}</span>
     </span>
   )
 }

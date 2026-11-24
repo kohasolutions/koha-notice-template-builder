@@ -1,10 +1,10 @@
 // Used the way a librarian would: words with a Koha value, undo, sections (added, dragged), a change for one notice
 // only, a warning, and the design file out and back in.
-import { body, code, expect, FILE, test } from './page.ts'
+import { body, code, editor, expect, fullEditor, test } from './page.ts'
 
 test('words, undo, sections, one notice, warnings, browser and file', async ({ page }, testInfo) => {
   page.on('dialog', (d) => void d.accept())
-  await page.goto(FILE)
+  await editor(page)
   const preview = body(page)
 
   // words, with a Koha value as a chip
@@ -54,6 +54,7 @@ test('words, undo, sections, one notice, warnings, browser and file', async ({ p
   // kept in the browser, saved to a file, started again, opened
   await page.getByLabel('Library name', { exact: true }).fill('Lahore Public Library')
   await page.reload()
+  await fullEditor(page)
   await expect(page.getByLabel('Library name', { exact: true })).toHaveValue('Lahore Public Library')
   const [download] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Save design file' }).click()])
   const saved = testInfo.outputPath('design.json')

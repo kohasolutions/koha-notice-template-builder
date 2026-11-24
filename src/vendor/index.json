@@ -1,0 +1,78 @@
+{
+ "source": "https://github.com/kohasolutions/koha-notice-templates",
+ "commit": "d350e7f8f9d6073a0416c9f893f15148ff56ef9d",
+ "notices": [
+  {
+   "code": "AUTO_RENEWALS",
+   "menu": "Circulation"
+  },
+  {
+   "code": "AUTO_RENEWALS_DGST",
+   "menu": "Circulation"
+  },
+  {
+   "code": "CHECKIN",
+   "menu": "Circulation"
+  },
+  {
+   "code": "CHECKOUT",
+   "menu": "Circulation"
+  },
+  {
+   "code": "DUE",
+   "menu": "Circulation"
+  },
+  {
+   "code": "DUEDGST",
+   "menu": "Circulation"
+  },
+  {
+   "code": "HOLD",
+   "menu": "Holds"
+  },
+  {
+   "code": "HOLDDGST",
+   "menu": "Holds"
+  },
+  {
+   "code": "HOLD_REMINDER",
+   "menu": "Holds"
+  },
+  {
+   "code": "ISSUESLIP",
+   "menu": "Circulation"
+  },
+  {
+   "code": "MEMBERSHIP_EXPIRY",
+   "menu": "Patrons (members)"
+  },
+  {
+   "code": "ODUE",
+   "menu": "Circulation"
+  },
+  {
+   "code": "ODUE2",
+   "menu": "Circulation"
+  },
+  {
+   "code": "ODUE3",
+   "menu": "Circulation"
+  },
+  {
+   "code": "PASSWORD_RESET",
+   "menu": "Patrons (members)"
+  },
+  {
+   "code": "PREDUE",
+   "menu": "Circulation"
+  },
+  {
+   "code": "PREDUEDGST",
+   "menu": "Circulation"
+  },
+  {
+   "code": "WELCOME",
+   "menu": "Patrons (members)"
+  }
+ ]
+}

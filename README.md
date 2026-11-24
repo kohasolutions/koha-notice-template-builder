@@ -3,12 +3,12 @@
 **Live notice template builder for Koha.** Design a Koha notice in the browser, see it at once, copy the code into
 *Tools → Notices and slips*. One HTML file; nothing is sent anywhere.
 
-> **Work in progress.** Version 1.0.0 is not out yet. The builder works; the Gmail and Outlook check is still to do.
+> **Work in progress.** Version 1.0.0 is not out yet. The builder works; the Outlook check is still to do.
 
 | Part | What it is |
 |---|---|
 | `src/compiler/` | `compile(notice, design)`: the Template Toolkit text for Koha and the preview, from one tree ([COMPILER.md](COMPILER.md)) |
-| `src/Builder.tsx` | the React component |
+| `src/Builder.tsx` | the React component: ready templates first (`src/builder/ReadyTemplates.tsx`), the full editor behind them |
 | `scripts/prove.mjs` | lets a real Koha run the compiled text and requires its message to equal the preview |
 | `scripts/look.mjs` | contrast, overflow and markup checks on every compiled notice, and pictures |
 | `e2e/` | Playwright: the built file used as a librarian would, with the network refused, by keyboard, and through axe |

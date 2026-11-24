@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs'
 import type { Page } from '@playwright/test'
 import { strFromU8, unzipSync } from 'fflate'
-import { code, expect, FILE, test } from './page.ts'
+import { code, editor, expect, FILE, test } from './page.ts'
 
 const clipboard = (page: Page) => page.evaluate(() => navigator.clipboard.readText())
 const copied = (page: Page, button: string) => page.locator('.kntb-copy').filter({ has: page.getByRole('button', { name: button }) }).getByText('Copied', { exact: true })
@@ -11,7 +11,7 @@ const name = (page: Page) => page.getByLabel('Library name', { exact: true })
 test.beforeEach(async ({ context }) => { await context.grantPermissions(['clipboard-read', 'clipboard-write']) })
 
 test('copies exactly what is shown, for every format', async ({ page }) => {
-  await page.goto(FILE)
+  await editor(page)
   await page.getByRole('combobox', { name: /^Notice/ }).selectOption('HOLD')
   for (const format of ['Email', 'Plain-text email', 'SMS', 'Print']) {
     await page.getByRole('button', { name: format, exact: true }).click()
@@ -37,7 +37,7 @@ test('a refused clipboard falls back, and says so when that fails too', async ({
     Object.defineProperty(navigator, 'clipboard', { value: { writeText: () => Promise.reject(new Error('no')) } })
     Object.defineProperty(document, 'execCommand', { value: () => false })
   })
-  await page.goto(FILE)
+  await editor(page)
   await page.getByRole('button', { name: 'Copy body' }).click()
   await expect(page.getByText(/Not copied: select the text/)).toBeVisible()
   await page.getByRole('button', { name: 'Copy share link' }).click()
@@ -45,7 +45,7 @@ test('a refused clipboard falls back, and says so when that fails too', async ({
 })
 
 test('the zip holds what the page shows', async ({ page }, testInfo) => {
-  await page.goto(FILE)
+  await editor(page)
   await name(page).fill('Bibliothèque été')
   const [d] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Download all notices' }).click()])
   const path = testInfo.outputPath('n.zip')
@@ -58,7 +58,7 @@ test('the zip holds what the page shows', async ({ page }, testInfo) => {
 })
 
 test('a share link: offered, opened, undone, gone from the address', async ({ page, browser }) => {
-  await page.goto(FILE)
+  await editor(page)
   await name(page).fill('Sender Library')
   await page.getByRole('button', { name: 'Copy share link' }).click()
   await expect(page.getByText(/Link copied/)).toBeVisible()

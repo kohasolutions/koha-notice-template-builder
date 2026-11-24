@@ -2,7 +2,7 @@
 import { strToU8, zipSync } from 'fflate'
 import type { Design } from '../compiler/design.ts'
 import { NOTICES } from '../notices/data.ts'
-import templates from '../vendor/templates.json'
+import templates from '../vendor/index.json'
 import { toFile } from './file.ts'
 import { FILE, forKoha, menuOf, TO_CREATE } from './for-koha.ts'
 import { FORMAT_NAME } from './labels.ts'

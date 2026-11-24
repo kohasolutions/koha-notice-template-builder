@@ -2,6 +2,7 @@
 import { ADDED_FOR_PROOF } from './added.mjs'
 import { SPEC, SECTIONS, fromReady } from '../src/compiler/design.ts'
 import { READY } from '../src/compiler/ready.ts'
+import { PARTS, withPart } from '../src/builder/parts.ts'
 import { EXAMPLE_LIBRARY } from '../src/compiler/example.ts'
 
 export const HARD = [
@@ -13,6 +14,12 @@ const COLOURS = ['#1f4e79', '#AB12cd', '#000000', 'red;} [% x %]', '']
 export const SAMPLE_LIBRARY = EXAMPLE_LIBRARY
 export const readyDesigns = () => READY.map((r) => ({ ...fromReady(r), id: r.id, perLibrary: SAMPLE_LIBRARY }))
 
+/** The ready templates' switches: every part off, each part off on its own (a design in turn), and an empty library. */
+export const switchedDesigns = () => [
+  ...READY.map((r) => ({ ...PARTS.reduce((d, p) => withPart(d, p.id, false, r.id), fromReady(r)), id: `${r.id} all off`, perLibrary: SAMPLE_LIBRARY })),
+  ...PARTS.map((p, i) => { const r = READY[i % READY.length]; return { ...withPart(fromReady(r), p.id, false, r.id), id: `${r.id} ${p.id} off`, perLibrary: SAMPLE_LIBRARY } }),
+  ...READY.map((r) => ({ ...fromReady(r), id: `${r.id} no details` })),
+]
 function roll(seed) {
   let s = seed
   const rnd = (k) => { s = (Math.imul(s, 1664525) + 1013904223) >>> 0; return Math.floor((s / 4294967296) * k) }

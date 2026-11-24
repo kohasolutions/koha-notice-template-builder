@@ -6,12 +6,13 @@ import type { History } from './builder/history.ts'
 import { start, step } from './builder/history.ts'
 import { BrandKit, Designs, Look, Wording } from './builder/panels.tsx'
 import { Preview } from './builder/Preview.tsx'
+import { ReadyTemplates } from './builder/ReadyTemplates.tsx'
 import { copyText } from './builder/copy.tsx'
 import { fromHash, holdsDesign, shareLink } from './builder/share.ts'
 import { initial, KOHA, reduce } from './builder/state.ts'
 import { CSS } from './builder/styles.ts'
 import { DESIGN_NAME, makeZip, ZIP_NAME } from './builder/zip.ts'
-import templates from './vendor/templates.json'
+import templates from './vendor/index.json'
 
 function first(): History {
   const s = initial()
@@ -40,6 +41,12 @@ export function Builder() {
   const [keeps] = useState(canKeep)
   const [message, setMessage] = useState('')
   const [offer, setOffer] = useState(offered)
+  const [screen, setScreen] = useState<'ready' | 'edit'>('ready')
+  const go = (to: 'ready' | 'edit') => {
+    // the ready templates are the same for every notice
+    dispatch({ type: 'scope', scope: 'all' })
+    setScreen(to)
+  }
   const file = useRef<HTMLInputElement>(null)
 
   useEffect(() => { store(state.design, state.readyId) }, [state.design, state.readyId])
@@ -99,6 +106,10 @@ export function Builder() {
       <header className="kntb-top">
         <h1>Live notice template builder for Koha</h1>
         <p>Make every Koha notice look like your library, see it as patrons will, and paste it into Koha.</p>
+        <div className="kntb-seg kntb-screens" role="group" aria-label="Screen">
+          <button type="button" aria-pressed={screen === 'ready'} onClick={() => { go('ready') }}>Ready templates</button>
+          <button type="button" aria-pressed={screen === 'edit'} onClick={() => { go('edit') }}>Full editor</button>
+        </div>
         <div className="kntb-bar" role="toolbar" aria-label="Design">
           <button type="button" disabled={!h.past.length} onClick={() => { dispatch({ type: 'undo' }) }} title="Ctrl+Z">Undo</button>
           <button type="button" disabled={!h.future.length} onClick={() => { dispatch({ type: 'redo' }) }} title="Ctrl+Shift+Z">Redo</button>
@@ -131,7 +142,7 @@ export function Builder() {
         <a href="#kntb-settings">Settings</a>
         <a href="#kntb-preview">Preview</a>
       </nav>
-      <div className="kntb-main">
+      {screen === 'ready' ? <ReadyTemplates state={state} dispatch={dispatch} onEdit={() => { go('edit'); window.scrollTo({ top: 0 }) }} /> : <div className="kntb-main">
         <section id="kntb-settings" className="kntb-controls" aria-label="Settings">
           <div className="kntb-brand"><BrandKit state={state} dispatch={dispatch} /></div>
           <Designs state={state} dispatch={dispatch} />
@@ -139,7 +150,7 @@ export function Builder() {
           <Look state={state} dispatch={dispatch} />
         </section>
         <Preview state={state} dispatch={dispatch} />
-      </div>
+      </div>}
       <footer className="kntb-foot">
         Every notice is tested through Koha {KOHA}: what Koha prints is what you see here. Notices at{' '}
         <code>{templates.commit.slice(0, 7)}</code>, before version 1.0.0. GPL-3.0-or-later.

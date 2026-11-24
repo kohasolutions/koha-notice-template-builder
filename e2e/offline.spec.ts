@@ -1,4 +1,4 @@
-import { body, code, expect, FILE, test } from './page.ts'
+import { body, code, editor, expect, FILE, test } from './page.ts'
 
 test('works from the disk; nothing but a typed logo is requested', async ({ page, context }) => {
   await context.setOffline(true)
@@ -8,7 +8,7 @@ test('works from the disk; nothing but a typed logo is requested', async ({ page
     asked.push(r.request().url())
     return r.abort()
   })
-  await page.goto(FILE)
+  await editor(page)
   await page.getByLabel('Library name', { exact: true }).fill('Tom & "Ann" [% x %]')
   await expect(code(page)).toHaveValue(/Tom &amp; &quot;Ann&quot; &#91;% x %\]/)
   await body(page).getByText('Tom & "Ann" [% x %]').first().waitFor()

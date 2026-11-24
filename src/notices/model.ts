@@ -36,6 +36,8 @@ export interface Notice extends Model {
   button: { if?: string; label: string; href: string } | null
   /** Its note is about the button, so it comes after it */
   noteAfterButton?: true
+  /** The button is what the message is for: it always shows */
+  mustButton?: true
   sms: string
   /** The SMS lines around a list are separate, because the list itself may be a digest */
   smsItems?: { loop: string; line: string; after?: string }

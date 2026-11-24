@@ -296,7 +296,7 @@ export function printLetter(input: Ready): Node[] {
   const { design: d } = r
   const { p, t, HF } = kit(d)
   const L = d.perLibrary
-  const foot = [L.address, L.phone, L.email, L.hours, L.smallprint].map(clean).filter(Boolean)
+  const foot = (['address', 'phone', 'email', 'hours', 'smallprint'] as const).filter((k) => d.footer.show.includes(k)).map((k) => clean(L[k])).filter(Boolean)
   const address = p([...parse('{firstname} {surname}{?r_address}\n{r_address}{/}{?r_address2}\n{r_address2}{/}{?r_city}\n{r_city}{?r_zipcode} {r_zipcode}{/}{/}{?r_country}\n{r_country}{/}')])
   return h`<div style="max-width:640px;margin:0 auto;font-size:${t.size}px">
 ${d.header.show ? header(r) : []}${line('#111111', 2)}
@@ -314,7 +314,7 @@ export function slip(r: Ready): Node[] {
   const F = FONTS[d.type.font]
   const logo = url(d.perLibrary.logo, ['https:'])
   const p = (x: Node[], extra = '') => h`<p style="margin:0 0 8px;overflow-wrap:anywhere;${extra}">${x}</p>`
-  const small = clean(d.perLibrary.smallprint)
+  const small = d.footer.show.includes('smallprint') ? clean(d.perLibrary.smallprint) : ''
   return h`<div style="width:72mm;max-width:100%;font-family:${F};font-size:13px;line-height:1.35;color:#000000">
 ${logo ? h`<img src="${html(logo)}" alt="${r.name}" style="display:block;max-width:100%;max-height:50px;margin:0 auto 8px">` : []}${p(r.name, 'font-size:16px;font-weight:bold;text-align:center;')}
 ${s.top.flatMap((l) => cond(l.if, p(parse(l.text))))}

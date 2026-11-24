@@ -47,7 +47,10 @@ export function words(w: Words | undefined, notice: Notice): Node[] | null {
 export const CLOSING = 'Thank you,'
 
 export function ready(notice: Notice, input: Design): Ready {
-  const design = safe(input, BASE, notice.code)
+  const asked = safe(input, BASE, notice.code)
+  const design: Design = notice.mustButton && !(asked.button.show && asked.sections.includes('button'))
+    ? { ...asked, button: { ...asked.button, show: true }, sections: asked.sections.includes('button') ? asked.sections : [...asked.sections, 'button'] }
+    : asked
   const mine = Object.hasOwn(design.perNotice, notice.code) ? design.perNotice[notice.code] : undefined
   const typed = clean(design.perLibrary.name)
   const name = typed ? [text(typed)] : [field('library')]

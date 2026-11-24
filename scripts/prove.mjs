@@ -9,7 +9,7 @@ import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { NOTICES } from '../src/notices/data.ts'
 import { compile, compileSubject } from '../src/compiler/compile.ts'
-import { randomDesigns, readyDesigns, hardDesigns } from './designs.mjs'
+import { randomDesigns, readyDesigns, hardDesigns, switchedDesigns } from './designs.mjs'
 
 const arg = (k, d) => (process.argv.find((a) => a.startsWith(`--${k}=`)) ?? `=${d}`).split('=').slice(1).join('=')
 const dir = resolve(process.env.TEMPLATES_DIR ?? '../koha-notice-templates')
@@ -91,13 +91,13 @@ function digestOrders(n, s) {
   return all
 }
 
-const ready = readyDesigns(), random = randomDesigns(Number(arg('random', '20'))), hard = hardDesigns()
+const ready = readyDesigns(), random = randomDesigns(Number(arg('random', '20'))), hard = hardDesigns(), switched = switchedDesigns()
 const jobs = [], want = []
 for (const n of notices)
   for (const [k, c] of cases(n).entries())
     for (const format of n.formats) {
       // the look matters in the HTML letters; text and SMS only take the library's own words
-      const list = [...(format === 'html' || format === 'print' ? ready : ready.slice(0, 1)), ...(k === 0 ? [...random, ...hard] : hard.slice(0, 1))]
+      const list = [...(format === 'html' || format === 'print' ? ready : ready.slice(0, 1)), ...(k === 0 ? [...random, ...hard, ...(format === 'sms' ? [] : switched)] : hard.slice(0, 1))]
       for (const [i, d] of list.entries()) {
         const s = samples[n.code][c.case || 'only'][format === 'print' ? 'print' : 'email']
         const out = compile(n, d, format), sub = compileSubject(n, d)
@@ -105,7 +105,7 @@ for (const n of notices)
         // a digest's loans come in no fixed order (automatic_renewals.pl sorts by patron only, koha-src
         // misc/cronjobs/automatic_renewals.pl:137-146), so every order of the sample's rows is an equal answer
         const orders = digestOrders(n, s).map((o) => out.sample(o))
-        want.push({ id: `${n.code} ${c.case} ${format} design ${i} ${d.id ?? 'random'}`, kind: ready.includes(d) ? 'ready' : 'random/hard', format, text: orders[0], orders, subject: format === 'html' || format === 'text' ? sub.sample(s) : null })
+        want.push({ id: `${n.code} ${c.case} ${format} design ${i} ${d.id ?? 'random'}`, kind: ready.includes(d) ? 'ready' : switched.includes(d) ? 'switched' : 'random/hard', format, text: orders[0], orders, subject: format === 'html' || format === 'text' ? sub.sample(s) : null })
       }
     }
 // the only things that differ from run to run: the minute on the slip and the one-time key in the reset link

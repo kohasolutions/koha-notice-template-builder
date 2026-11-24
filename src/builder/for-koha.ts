@@ -3,7 +3,7 @@
 import { compile, compileSubject } from '../compiler/compile.ts'
 import type { Design } from '../compiler/design.ts'
 import type { Format, Notice } from '../notices/model.ts'
-import templates from '../vendor/templates.json'
+import templates from '../vendor/index.json'
 
 const MENU: Readonly<Record<string, string>> = Object.fromEntries(templates.notices.map((n) => [n.code, n.menu]))
 /** The heading in Koha's notice form a message is pasted under. */

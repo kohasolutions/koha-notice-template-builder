@@ -39,7 +39,8 @@ function Text({ text, sms }: { text: string; sms: boolean }) {
   )
 }
 
-export function Preview({ state, dispatch }: { state: State; dispatch: Dispatch<Action> }) {
+/** pick: with the list of notices and the warnings a designer needs; without, only what a ready template does. */
+export function Preview({ state, dispatch, pick = true }: { state: State; dispatch: Dispatch<Action>; pick?: boolean }) {
   const n = notice(state.code)
   const sample = sampleFor(state)
   const out = useMemo(() => {
@@ -52,14 +53,36 @@ export function Preview({ state, dispatch }: { state: State; dispatch: Dispatch<
   const views: Array<Exclude<View, 'both'>> = state.view === 'both' ? ['phone', 'desktop'] : [state.view]
   const html = state.format === 'html' || state.format === 'print'
 
+  const code = out ? (
+    <>
+      <label>Message subject<textarea readOnly rows={2} value={out.koha.subject} /></label>
+      <label>Message body<textarea readOnly rows={10} value={out.koha.body} /></label>
+    </>
+  ) : null
+  const put = out ? (
+    <section className="kntb-koha" aria-label="The template for Koha">
+      <h2>{pick ? 'Put it into Koha' : '5. Copy it into Koha'}</h2>
+      <p>In Koha: <strong>Tools › Notices and slips</strong> › {out.koha.menu} › <code>{n.code}</code> › {out.koha.transport}, with "HTML message" {out.koha.htmlMessage ? 'ticked' : 'not ticked'}. Keep a copy of the text you have now.</p>
+      {TO_CREATE.has(n.code) ? <p className="kntb-note"><code>{n.code}</code> does not come with Koha: make it there first, with "New notice", then choose it in <strong>Tools › Overdue notice/status triggers</strong>.</p> : null}
+      <div className="kntb-row kntb-wrap">
+        <CopyButton label="Copy subject" text={out.koha.subject} />
+        <CopyButton label="Copy body" text={out.koha.body} />
+      </div>
+      {html || state.format === 'text' ? null : <p className="kntb-note">Koha asks for a subject here too, and drops the message without one.</p>}
+      {pick ? code : <details><summary>See the code</summary>{code}</details>}
+    </section>
+  ) : null
+
   return (
     <section id="kntb-preview" className="kntb-preview" aria-label="Preview">
       <div className="kntb-toolbar">
-        <label>Notice{' '}
-          <select value={state.code} onChange={(e) => { dispatch({ type: 'notice', code: e.target.value }) }}>
-            {NOTICES.map((x) => <option key={x.code} value={x.code}>{x.name} ({x.code})</option>)}
-          </select>
-        </label>
+        {pick ? (
+          <label>Notice{' '}
+            <select value={state.code} onChange={(e) => { dispatch({ type: 'notice', code: e.target.value }) }}>
+              {NOTICES.map((x) => <option key={x.code} value={x.code}>{x.name} ({x.code})</option>)}
+            </select>
+          </label>
+        ) : <h2>{n.name}</h2>}
         {situations(state.code).length > 1 ? (
           <label>Situation{' '}
             <select value={state.situation} onChange={(e) => { dispatch({ type: 'situation', situation: e.target.value }) }}>
@@ -88,23 +111,13 @@ export function Preview({ state, dispatch }: { state: State; dispatch: Dispatch<
             </ul>
           ) : null}
           {out.subject !== null ? <p className="kntb-subject"><span>Subject</span> {out.subject}</p> : null}
+          {pick ? null : put}
           <div className="kntb-frames">
             {html
               ? views.map((v) => <Frame key={v} html={out.shown} width={WIDTH[v]} dark={state.dark && state.format === 'html'} label={v === 'phone' ? 'Phone' : 'Desktop'} />)
               : <Text text={out.shown} sms={state.format === 'sms'} />}
           </div>
-          <section className="kntb-koha" aria-label="The template for Koha">
-            <h2>Put it into Koha</h2>
-            <p>In Koha: <strong>Tools › Notices and slips</strong> › {out.koha.menu} › <code>{n.code}</code> › {out.koha.transport}, with "HTML message" {out.koha.htmlMessage ? 'ticked' : 'not ticked'}. Keep a copy of the text you have now.</p>
-            {TO_CREATE.has(n.code) ? <p className="kntb-note"><code>{n.code}</code> does not come with Koha: make it there first, with "New notice", then choose it in <strong>Tools › Overdue notice/status triggers</strong>.</p> : null}
-            <div className="kntb-row kntb-wrap">
-              <CopyButton label="Copy subject" text={out.koha.subject} />
-              <CopyButton label="Copy body" text={out.koha.body} />
-            </div>
-            {html || state.format === 'text' ? null : <p className="kntb-note">Koha asks for a subject here too, and drops the message without one.</p>}
-            <label>Message subject<textarea readOnly rows={2} value={out.koha.subject} /></label>
-            <label>Message body<textarea readOnly rows={10} value={out.koha.body} /></label>
-          </section>
+          {pick ? put : null}
         </>
       )}
     </section>

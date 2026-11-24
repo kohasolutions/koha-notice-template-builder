@@ -1,6 +1,7 @@
 // The formats without layout: plain-text email and SMS. Directives never stand on a line of their own, so what
 // Template Toolkit leaves out takes no line break with it.
 import type { Ready } from './compile.ts'
+import type { SectionId } from './design.ts'
 import { clean, url } from './escape.ts'
 import type { Node } from './nodes.ts'
 import { parse, repeat, text, when } from './nodes.ts'
@@ -22,7 +23,10 @@ export function textLetter(r: Ready): Node[] {
   const { notice: n, design: d } = r
   // Koha's digest starts a line of its own after what comes before the items
   const digest = n.items?.loop ? n.loops[n.items.loop]?.digest : undefined
-  const out: Node[] = [...r.greeting, nl, nl, ...r.intro, ...(digest ? [] : [nl])]
+  const has = (s: SectionId) => d.sections.includes(s)
+  const out: Node[] = [...(has('greeting') ? [...r.greeting, nl, nl] : []), ...(has('intro') ? [...r.intro, ...(digest ? [] : [nl])] : [])]
+  // Koha drops the line break of a digest that nothing comes before; and a message should not open with a bare list
+  if (!out.length) out.push(...r.title, ...(digest ? [] : [nl]))
   const it = n.items
   if (it) {
     const show = (k: string) => d.items.fields.includes(k as 'title')
@@ -41,9 +45,9 @@ export function textLetter(r: Ready): Node[] {
   const block = (id: string | undefined, nodes: Node[]) => out.push(...cond(id, [nl, ...nodes, nl]))
   for (const a of n.alerts) block(a.if, parse(a.text))
   if (n.details) block(n.details.if, [text(`${n.details.heading}:`), ...n.details.lines.flatMap((l) => cond(l.if, [nl, text('  '), ...parse(l.text)]))])
-  for (const x of r.notes) block(x.if, x.nodes)
-  if (n.button) block(n.button.if, [...r.buttonLabel, text(': '), ...parse(n.button.href)])
-  out.push(nl, ...r.closing, nl, ...r.name)
+  if (has('note')) for (const x of r.notes) block(x.if, x.nodes)
+  if (n.button && d.button.show && has('button')) block(n.button.if, [...r.buttonLabel, text(': '), ...parse(n.button.href)])
+  if (has('closing')) out.push(nl, ...r.closing, nl, ...r.name)
   const L = d.perLibrary
   const foot: Node[][] = d.footer.show.flatMap((k): Node[][] => {
     if (k === 'links') return L.links.flatMap((l) => (clean(l.label) && url(l.href) ? [[text(clean(l.label)), text(': '), text(url(l.href) ?? '')]] : []))

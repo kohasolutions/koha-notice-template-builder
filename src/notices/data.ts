@@ -290,7 +290,7 @@ export const NOTICES: readonly Notice[] = [
     },
     items: null,
     notes: [{ text: 'If the button does not work, copy this address into your browser:\n{link}' }, { text: 'The link works for 2 days. If you did not ask for this, ignore this message: your password stays as it is.' }],
-    button: { label: 'Set a new password', href: '{link}' }, noteAfterButton: true, sms: '',
+    button: { label: 'Set a new password', href: '{link}' }, noteAfterButton: true, mustButton: true, sms: '',
   },
   {
     ...empty, code: 'ISSUESLIP', name: 'Checkout slip', module: 'circulation', formats: ['print'],

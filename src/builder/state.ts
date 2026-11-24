@@ -8,6 +8,8 @@ import type { Sample } from '../compiler/nodes.ts'
 import { READY } from '../compiler/ready.ts'
 import { NOTICES } from '../notices/data.ts'
 import type { Format, Notice } from '../notices/model.ts'
+import type { PartId } from './parts.ts'
+import { withDesign, withPart } from './parts.ts'
 import samples from '../samples.json'
 
 export const SAMPLES = samples.samples as unknown as Readonly<Record<string, Readonly<Record<string, Partial<Record<'email' | 'print', Sample>>>>>>
@@ -36,6 +38,9 @@ export interface State {
 
 export type Action =
   | { type: 'ready'; id: string }
+  /** Another ready design; the parts switched off stay off */
+  | { type: 'template'; id: string }
+  | { type: 'part'; id: PartId; on: boolean }
   | { type: 'set'; group: Group; key: string; value: unknown }
   | { type: 'library'; key: LibraryText; value: string }
   | { type: 'links'; links: Link[] }
@@ -113,6 +118,12 @@ export function reduce(s: State, a: Action): State {
       const r = READY.find((x) => x.id === a.id)
       // a new look; the library's own details and per-notice words stay
       return r ? { ...s, readyId: r.id, design: { ...fromReady(r), perLibrary: d.perLibrary, perNotice: d.perNotice } } : s
+    }
+    case 'template':
+      return READY.some((r) => r.id === a.id) ? { ...s, readyId: a.id, design: withDesign(d, s.readyId, a.id) } : s
+    case 'part': {
+      const design = withPart(d, a.id, a.on, s.readyId)
+      return design === d ? s : { ...s, design }
     }
     case 'set': {
       if (!Object.hasOwn(SPEC[a.group], a.key)) return s

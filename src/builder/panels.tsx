@@ -62,11 +62,11 @@ function LogoWarning({ logo }: { logo: string }) {
   )
 }
 
-export function BrandKit({ state, dispatch }: Props) {
+export function BrandKit({ state, dispatch, title = 'Your library' }: Props & { title?: string }) {
   const L = state.design.perLibrary
   const set = (key: LibraryText, value: string) => { dispatch({ type: 'library', key, value }) }
   return (
-    <Panel title="Your library" open>
+    <Panel title={title} open>
       <p className="kntb-note">Used in every notice. Nothing you type leaves this page.</p>
       {TEXT.map(([k, label, hint]) => (
         <Field key={k} label={label} {...(hint ? { hint } : {})}>{(id) => (
