@@ -71,6 +71,12 @@ describe('the two outputs', () => {
   test('a separator stands only between two facts that are there', () => {
     const print = (p: string, q: string) => toSample(join([{ if: 'p', nodes: [text('P')] }, { if: 'a', nodes: [text('A')] }, { nodes: [text('Z')] }], [text('+')]), model, { fields: { p, a: q }, loops: {} }, 'text')
     expect([print('1', '1'), print('1', ''), print('', '1'), print('', '')]).toEqual(['P+A+Z', 'P+Z', 'A+Z', 'Z'])
+    // a fact that is always there, first or in the middle: what follows it still needs its separator
+    const after = (order: Array<'p' | 'a' | 'z'>) => (p: string, q: string) =>
+      toSample(join(order.map((k) => (k === 'z' ? { nodes: [text('Z')] } : { if: k, nodes: [text(k.toUpperCase())] })), [text('+')]), model, { fields: { p, a: q }, loops: {} }, 'text')
+    const first = after(['z', 'p', 'a']), middle = after(['p', 'z', 'a'])
+    expect([first('1', '1'), first('1', ''), first('', '1'), first('', '')]).toEqual(['Z+P+A', 'Z+P', 'Z+A', 'Z'])
+    expect([middle('1', '1'), middle('1', ''), middle('', '1'), middle('', '')]).toEqual(['P+Z+A', 'P+Z', 'Z+A', 'Z'])
   })
 })
 
