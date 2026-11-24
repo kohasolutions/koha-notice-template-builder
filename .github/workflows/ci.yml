@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build:
-    name: Lint, types, tests, single-file build, offline check
+    name: Lint, types, tests, single-file build, browser suite
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
@@ -25,7 +25,7 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:offline
+      - run: npm run test:e2e
 
   readme:
     name: Company introduction matches github.com/kohasolutions/.github/company/about.md

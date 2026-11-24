@@ -65,8 +65,12 @@ export const CSS = `
 .kntb-frame iframe{display:block;max-width:100%;border:1px solid var(--line);border-radius:8px;background:#fff}
 .kntb-frame iframe.kntb-dark{filter:invert(.92) hue-rotate(180deg)}
 .kntb-text pre{margin:0;padding:12px;background:var(--panel);border:1px solid var(--line);border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.5 ui-monospace,Consolas,monospace}
+.kntb .kntb-primary{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.kntb-copy{display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap}
+.kntb-offer{margin:12px 16px 0;padding:12px 14px;background:var(--panel);border:2px solid var(--accent);border-radius:8px}
+.kntb-offer p{margin:0 0 8px}
 .kntb-koha{margin-top:16px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
-.kntb-koha summary{cursor:pointer;font-weight:600}
+.kntb h2{font-size:16px;margin:0}
 .kntb-koha label{display:block;font-size:13px;font-weight:600;margin-top:8px}
 .kntb-koha textarea{margin-top:4px}
 .kntb-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}

@@ -1,5 +1,5 @@
 // The panels on the left: brand kit, ready designs, then the look, group by group.
-import type { Dispatch, ReactNode } from 'react'
+import type { Dispatch, KeyboardEvent, ReactNode } from 'react'
 import { useState } from 'react'
 import type { Group, Link, Social } from '../compiler/design.ts'
 import { url } from '../compiler/escape.ts'
@@ -128,12 +128,24 @@ function Socials({ social, withIcon, onChange }: { social: Social[]; withIcon: b
 }
 
 export function Designs({ state, dispatch }: Props) {
+  // radio buttons: one stop for Tab, the arrow keys go round
+  const arrows = (e: KeyboardEvent<HTMLDivElement>) => {
+    const by = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key]
+    if (by === undefined) return
+    e.preventDefault()
+    const at = READY.findIndex((r) => r.id === state.readyId)
+    const i = (at + by + READY.length) % READY.length
+    const next = READY[i]
+    if (!next) return
+    dispatch({ type: 'ready', id: next.id })
+    e.currentTarget.querySelectorAll<HTMLElement>('[role=radio]')[i]?.focus()
+  }
   return (
     <Panel title="Design" open>
       <p className="kntb-note">Start from one, then change anything below. Your library's details stay.</p>
-      <div className="kntb-designs" role="radiogroup" aria-label="Ready designs">
+      <div className="kntb-designs" role="radiogroup" aria-label="Ready designs" onKeyDown={arrows}>
         {READY.map((r) => (
-          <button key={r.id} type="button" role="radio" aria-checked={state.readyId === r.id} className="kntb-design" onClick={() => { dispatch({ type: 'ready', id: r.id }) }}>
+          <button key={r.id} type="button" role="radio" aria-checked={state.readyId === r.id} tabIndex={state.readyId === r.id ? 0 : -1} className="kntb-design" onClick={() => { dispatch({ type: 'ready', id: r.id }) }}>
             <span className="kntb-swatch" aria-hidden="true">
               {[r.page.bg, r.header.bg || r.card.bg, r.button.bg, r.type.heading].map((c, i) => <span key={i} style={{ background: c }} />)}
             </span>

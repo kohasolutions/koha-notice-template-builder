@@ -18,13 +18,13 @@ export function Field({ label, children, hint }: { label: string; children: (id:
   )
 }
 
-function Colour({ id, value, onChange, optional }: { id: string; value: string; onChange: (v: string) => void; optional: boolean }) {
+function Colour({ id, label, value, onChange, optional }: { id: string; label: string; value: string; onChange: (v: string) => void; optional: boolean }) {
   const on = value !== ''
   return (
     <div className="kntb-row">
-      {optional ? <input type="checkbox" aria-label="Use a colour" checked={on} onChange={(e) => { onChange(e.target.checked ? '#cccccc' : '') }} /> : null}
+      {optional ? <input type="checkbox" aria-label={`${label}: use a colour`} checked={on} onChange={(e) => { onChange(e.target.checked ? '#cccccc' : '') }} /> : null}
       <input id={id} type="color" value={colour(value, '#000000').toLowerCase()} disabled={!on && optional} onChange={(e) => { onChange(e.target.value) }} />
-      <input className="kntb-hex" aria-label="Colour code" value={value} placeholder={optional ? 'none' : '#000000'} spellCheck={false} disabled={!on && optional}
+      <input className="kntb-hex" aria-label={`${label}, colour code`} value={value} placeholder={optional ? 'none' : '#000000'} spellCheck={false} disabled={!on && optional}
         onChange={(e) => { onChange(e.target.value.trim()) }} />
     </div>
   )
@@ -45,7 +45,7 @@ export function Setting({ group, k, value, onChange }: { group: Group; k: string
       )
     case 'colour':
     case 'colour?':
-      return <Field label={label}>{(id) => <Colour id={id} value={typeof value === 'string' ? value : ''} optional={rule.is === 'colour?'} onChange={onChange} />}</Field>
+      return <Field label={label}>{(id) => <Colour id={id} label={label} value={typeof value === 'string' ? value : ''} optional={rule.is === 'colour?'} onChange={onChange} />}</Field>
     case 'px': {
       const n = typeof value === 'number' ? value : rule.min
       return (

@@ -4,16 +4,14 @@ import type { Dispatch } from 'react'
 import { useMemo, useRef, useState } from 'react'
 import { compile, compileSubject } from '../compiler/compile.ts'
 import { NOTICES } from '../notices/data.ts'
-import type { Format } from '../notices/model.ts'
-import templates from '../vendor/templates.json'
+import { CopyButton } from './copy.tsx'
+import { forKoha, TO_CREATE } from './for-koha.ts'
 import { FORMAT_NAME } from './labels.ts'
 import type { Action, State, View } from './state.ts'
 import { notice, sampleFor, situationName, situations } from './state.ts'
 import { warnings } from './warnings.ts'
 
 const WIDTH = { phone: 390, desktop: 740 } as const
-const MODULE = Object.fromEntries(templates.notices.map((n) => [n.code, n.menu]))
-const TRANSPORT: Record<Format, string> = { html: 'Email', text: 'Email', sms: 'SMS', print: 'Print' }
 
 /** A notice in a sandbox: no script runs, and its styles cannot reach the page. Its height follows its content. */
 function Frame({ html, width, dark, label }: { html: string; width: number; dark: boolean; label: string }) {
@@ -48,7 +46,7 @@ export function Preview({ state, dispatch }: { state: State; dispatch: Dispatch<
     if (!sample) return null
     const c = compile(n, state.design, state.format)
     const subject = state.format === 'html' || state.format === 'text' ? compileSubject(n, state.design) : null
-    return { koha: c.koha, shown: c.sample(sample), subject: subject?.sample(sample) ?? null, subjectKoha: subject?.koha ?? null }
+    return { koha: forKoha(n, state.design, state.format), shown: c.sample(sample), subject: subject?.sample(sample) ?? null }
   }, [n, state.design, state.format, sample])
   const warned = useMemo(() => warnings(state.design, state.code), [state.design, state.code])
   const views: Array<Exclude<View, 'both'>> = state.view === 'both' ? ['phone', 'desktop'] : [state.view]
@@ -95,12 +93,18 @@ export function Preview({ state, dispatch }: { state: State; dispatch: Dispatch<
               ? views.map((v) => <Frame key={v} html={out.shown} width={WIDTH[v]} dark={state.dark && state.format === 'html'} label={v === 'phone' ? 'Phone' : 'Desktop'} />)
               : <Text text={out.shown} sms={state.format === 'sms'} />}
           </div>
-          <details className="kntb-koha">
-            <summary>The template for Koha</summary>
-            <p>In Koha: <strong>Tools › Notices and slips</strong> › {MODULE[n.code] ?? n.module} › <code>{n.code}</code> › {TRANSPORT[state.format]}{state.format === 'html' ? ', with "HTML message" ticked' : ''}.</p>
-            {out.subjectKoha !== null ? <label>Message subject<textarea readOnly rows={2} value={out.subjectKoha} /></label> : null}
-            <label>Message body<textarea readOnly rows={10} value={out.koha} /></label>
-          </details>
+          <section className="kntb-koha" aria-label="The template for Koha">
+            <h2>Put it into Koha</h2>
+            <p>In Koha: <strong>Tools › Notices and slips</strong> › {out.koha.menu} › <code>{n.code}</code> › {out.koha.transport}, with "HTML message" {out.koha.htmlMessage ? 'ticked' : 'not ticked'}. Keep a copy of the text you have now.</p>
+            {TO_CREATE.has(n.code) ? <p className="kntb-note"><code>{n.code}</code> does not come with Koha: make it there first, with "New notice", then choose it in <strong>Tools › Overdue notice/status triggers</strong>.</p> : null}
+            <div className="kntb-row kntb-wrap">
+              <CopyButton label="Copy subject" text={out.koha.subject} />
+              <CopyButton label="Copy body" text={out.koha.body} />
+            </div>
+            {html || state.format === 'text' ? null : <p className="kntb-note">Koha asks for a subject here too, and drops the message without one.</p>}
+            <label>Message subject<textarea readOnly rows={2} value={out.koha.subject} /></label>
+            <label>Message body<textarea readOnly rows={10} value={out.koha.body} /></label>
+          </section>
         </>
       )}
     </section>

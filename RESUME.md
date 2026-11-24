@@ -38,8 +38,15 @@ UCS-2, a subject over Koha's 200 characters). Checks: 79 unit tests (10/10 mutat
 (scripts/builder-check.mjs drives all of it in the built file, drag included), the offline check. The single file is
 980 kB (253 kB gzipped) with the editors, and ends with every bundled package's licence.
 
+P5 is done: copy buttons (body and subject, with a fallback and words when the browser refuses), all notices as a zip
+with START-HERE.txt and the design file (zip.ts, fflate), a share link with the design after the # (share.ts: offered
+before it is opened, taken out of the address, unpacked to 1 MB at most, refused over 8,000 characters), axe with every
+panel open in light, dark and phone, the ready designs by arrow keys. What goes into Koha is one place (for-koha.ts).
+Found on the way: Koha's letter.pl deletes a message with no subject, so SMS and print show theirs too, and print says
+"HTML message" ticked. The two scripts are now e2e/ (Playwright, `npm run test:e2e` after a build, in CI). 12 mutations:
+11 caught (two after their tests were made stronger); the twelfth was a needless check, removed.
+A link made from the file on a disk points at HOME (share.ts): that page must be live before v1.0.0.
+
 To do next:
-1. P5: copy buttons, download all as a zip with instructions, share link (design in the URL fragment), accessibility
-   pass (axe), the Playwright suite (fold test:ui and test:offline into it).
-2. P6: Gmail and Outlook (owner's test accounts), the website page with SEO, public v1.0.0 of both repositories.
+1. P6: Gmail and Outlook (owner's test accounts), the website page with SEO, public v1.0.0 of both repositories.
 Not done: Gmail and Outlook, striped rows (not possible in a digest), Koha addresses in the footer.
