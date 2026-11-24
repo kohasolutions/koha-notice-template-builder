@@ -30,7 +30,7 @@ export interface Link { label: string; href: string }
 export interface Social { network: string; href: string; icon?: string }
 
 // Every setting and what it may be. safe() needs nothing else, so a new setting cannot miss its check.
-type Rule =
+export type Rule =
   | { is: 'colour' } // always a colour
   | { is: 'colour?' } // a colour or ''
   | { is: 'px'; min: number; max: number }

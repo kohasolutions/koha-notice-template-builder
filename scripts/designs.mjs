@@ -1,7 +1,8 @@
 // The same designs every time (seeded), with hard text in every place a person can type.
 import { ADDED_FOR_PROOF } from './added.mjs'
-import { SPEC, SECTIONS, NO_LIBRARY, fromReady } from '../src/compiler/design.ts'
+import { SPEC, SECTIONS, fromReady } from '../src/compiler/design.ts'
 import { READY } from '../src/compiler/ready.ts'
+import { EXAMPLE_LIBRARY } from '../src/compiler/example.ts'
 
 export const HARD = [
   '', 'Lahore Public Library', `O'Brien & "Sons" <b>Library</b>`, 'C:\\new\\table $x ${branch.branchname} \\', '[% branch.branchname %] %] [%- STOP -%]',
@@ -9,13 +10,7 @@ export const HARD = [
 ]
 export const URLS = ['', 'https://example.org/l.png?a=1&b=2', "https://example.org/a'b%5D$x/(1).png", 'https://example.org/[%x%]?q=<<y>>&z=----', 'javascript:alert(1)', 'mailto:a@example.org', 'http://example.org/', 'not an address']
 const COLOURS = ['#1f4e79', '#AB12cd', '#000000', 'red;} [% x %]', '']
-/** The library the pictures use: the same one the visual targets have. */
-export const SAMPLE_LIBRARY = {
-  ...NO_LIBRARY, tagline: 'Read, learn, meet', address: '1 Main Street, Riverside 12345', phone: '+1 555 0100', email: 'library@example.org', hours: 'Mon to Fri 9:00–18:00, Sat 10:00–14:00',
-  links: [{ label: 'Catalogue', href: 'https://library.example.org/' }, { label: 'My account', href: 'https://library.example.org/account' }, { label: 'Opening hours', href: 'https://library.example.org/hours' }],
-  social: ['Facebook', 'Instagram', 'YouTube'].map((network) => ({ network, href: `https://social.example/${network.toLowerCase()}` })),
-  smallprint: 'You receive this message because you have a library account with us.',
-}
+export const SAMPLE_LIBRARY = EXAMPLE_LIBRARY
 export const readyDesigns = () => READY.map((r) => ({ ...fromReady(r), id: r.id, perLibrary: SAMPLE_LIBRARY }))
 
 function roll(seed) {

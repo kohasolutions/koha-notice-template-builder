@@ -20,6 +20,16 @@ Looks: 430/430 with the new button labels; pictures retaken (out/look).
 
 Templates pinned at ba90afc (koha-notice-templates main, with the cache fix merged); 18 notices.
 
+P3 (the builder's screen) is done: src/Builder.tsx + src/builder/. The look panels are made from SPEC (controls.tsx: one
+control per kind of rule), so a new setting needs only its words in labels.ts; tests/builder.test.ts fails without
+them. Brand kit (name, tagline, logo, contact, hours, small print, footer links, social links, example fill), the 8
+ready designs (the library's details stay on a switch), header, page and text, items, boxes and button, footer and
+social style; live preview of all 18 notices × every situation Koha printed × every format, phone/desktop/both,
+forced-dark approximation, the subject, and the template for Koha with where to paste it. Narrow screens get a sticky
+Settings / Preview switch. Offline check drives it (design click, a colour reaching the template, SMS, logo).
+
 To do next:
-1. P3: the builder's screen. One source of truth for the wording: COMPILER.md.
+1. P4: sections (drag, @dnd-kit/react), wording editor with Koha value chips (@tiptap/core), per-notice changes,
+   undo/redo, saved in the browser, design file export/import, warnings (contrast, broken logo, SMS length).
+2. P5: copy, zip, share link, accessibility pass, Playwright suite. P6: Gmail/Outlook, website page, v1.0.0.
 Not done: Gmail and Outlook, striped rows (not possible in a digest), Koha addresses in the footer.
