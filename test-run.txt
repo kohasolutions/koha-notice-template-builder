@@ -1,6 +1,6 @@
-koha-notice-template-builder 1.0.0 · ee7005d-dirty · ee7005d56866e30edf3073621c29578828e11f93
+koha-notice-template-builder 1.0.0 · 439aedb-dirty · 439aedb9bf6ad96057d0176dbb39752aef994cfd
 Templates: koha-notice-templates v1.0.0 829a7fe4fc67ce21e6fde7982fa28fd74affad3a
-Run on 2026-11-25T18:23:02Z, Linux 7.0.0-43-generic, node v24.4.1
+Run on 2026-11-25T18:47:48Z, Linux 7.0.0-43-generic, node v24.4.1
 
 == Pin, lint, types, unit tests
 [templates] v1.0.0 829a7fe
@@ -8,10 +8,10 @@ Run on 2026-11-25T18:23:02Z, Linux 7.0.0-43-generic, node v24.4.1
       Tests  118 passed (118)
 
 == Single-file build
-dist/index.html 900807 bytes, sha256 fdabeb6e43348a651c432c9ed0c4b7672f0dc4ee15642006a51c897eb6f72c04
+dist/index.html 900807 bytes, sha256 505ea6f3a98ec37cb70388d5a25e5ad0c724f9175dbfb6d843c47247bdfb5b58
 
 == The built file in a browser (Playwright, network refused)
-  20 passed (31.2s)
+  20 passed (34.7s)
 
 == How the compiled notices look (scripts/look.mjs)
 430 of 430 passed
