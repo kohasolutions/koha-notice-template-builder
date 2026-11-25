@@ -1,0 +1,29 @@
+koha-notice-template-builder 1.0.0 · ee7005d-dirty · ee7005d56866e30edf3073621c29578828e11f93
+Templates: koha-notice-templates v1.0.0 829a7fe4fc67ce21e6fde7982fa28fd74affad3a
+Run on 2026-11-25T18:23:02Z, Linux 7.0.0-43-generic, node v24.4.1
+
+== Pin, lint, types, unit tests
+[templates] v1.0.0 829a7fe
+ Test Files  6 passed (6)
+      Tests  118 passed (118)
+
+== Single-file build
+dist/index.html 900807 bytes, sha256 fdabeb6e43348a651c432c9ed0c4b7672f0dc4ee15642006a51c897eb6f72c04
+
+== The built file in a browser (Playwright, network refused)
+  20 passed (31.2s)
+
+== How the compiled notices look (scripts/look.mjs)
+430 of 430 passed
+
+== Every notice through Koha: Koha's message equals the preview (scripts/prove.mjs)
+text random/hard: 592/592
+text switched: 561/561
+sms ready: 44/44
+sms random/hard: 524/524
+print ready: 152/152
+print random/hard: 275/275
+print switched: 264/264
+Koha 26.05.02.002: 3997 of 3997 equal to the preview
+
+RESULT: all passed

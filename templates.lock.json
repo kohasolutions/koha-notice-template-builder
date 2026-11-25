@@ -1,9 +1,8 @@
 {
   "source": "https://github.com/kohasolutions/koha-notice-templates",
-  "version": null,
-  "provisional": true,
-  "commit": "d350e7f8f9d6073a0416c9f893f15148ff56ef9d",
-  "bundle_sha256": "2c6f548202c44ce682b908abe5410b1adde6dc3afdc4f1249f65082df1d41387",
-  "vendored_sha256": "5bfc689ddee23805e72aa896842b960a30b7d6829cf6d48a0b8dfdba8f5e8de5",
-  "note": "The bundle was made at ba90afccdc4b73a6f973c688900608dd3d71a33b; that commit has the same files as d350e7f8f9d6073a0416c9f893f15148ff56ef9d (only commit messages were rewritten, 2026-11-24)."
+  "version": "1.0.0",
+  "provisional": false,
+  "commit": "829a7fe4fc67ce21e6fde7982fa28fd74affad3a",
+  "bundle_sha256": "e5b70bec1532984c198fe2ec2013b6b6f31cd53d5fe889a64827ea0db03598c4",
+  "vendored_sha256": "3e212e2900a7ca95944d51dbb34445d2f6245363107cde9ce21838a3dd62b04e"
 }

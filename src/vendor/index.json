@@ -1,6 +1,6 @@
 {
  "source": "https://github.com/kohasolutions/koha-notice-templates",
- "commit": "d350e7f8f9d6073a0416c9f893f15148ff56ef9d",
+ "commit": "829a7fe4fc67ce21e6fde7982fa28fd74affad3a",
  "notices": [
   {
    "code": "AUTO_RENEWALS",

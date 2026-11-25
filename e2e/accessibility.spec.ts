@@ -7,6 +7,9 @@ const problems = async (page: Page) => (await new AxeBuilder({ page }).setLegacy
 
 for (const colorScheme of ['light', 'dark'] as const)
   test(`axe finds nothing, ${colorScheme}, every panel open`, async ({ page }) => {
+    // Six full-page axe scans with every panel open take 18-20 s alone (2026-11-25, 8 cores); next to the other
+    // workers that passed the default 30 s and failed now and then. The work is real, so the budget is 90 s.
+    test.slow()
     await page.emulateMedia({ colorScheme })
     await editor(page)
     expect(await problems(page)).toEqual([])
