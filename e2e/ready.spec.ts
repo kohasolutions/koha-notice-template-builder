@@ -14,7 +14,7 @@ test('notice, design, details, switches, copy', async ({ page, context }, testIn
   await page.getByLabel('Library name', { exact: true }).fill('Lahore Public Library')
   await page.getByRole('textbox', { name: 'Opening hours' }).fill('Mon to Fri 9–5')
   // every design shows the notice with the library's own details
-  for (const f of await page.locator('.kntb-thumb iframe').all()) expect(await f.getAttribute('srcdoc')).toContain('Lahore Public Library')
+  for (const f of await page.locator('.kntb-thumb iframe').all()) await expect(f.contentFrame().locator('body')).toContainText('Lahore Public Library')
   // and the pictures are really painted: a design that is seen has more than one colour in it
   const shot = await page.locator('.kntb-thumb-window').first().screenshot()
   const colours = await page.evaluate(async (b64) => {

@@ -12,6 +12,7 @@ import { isOn, partsOf, withDesign } from './parts.ts'
 import { Preview } from './Preview.tsx'
 import type { Action, State } from './state.ts'
 import { hasOwn, notice, SAMPLES, situations } from './state.ts'
+import { SteadyFrame } from './SteadyFrame.tsx'
 
 type Props = { state: State; dispatch: Dispatch<Action> }
 const WIDTH = 600
@@ -43,7 +44,7 @@ function Designs({ state, dispatch }: Props) {
         {shown.map(({ r, html }) => (
           <div key={r.id} className="kntb-thumb" data-on={state.readyId === r.id}>
             <span className="kntb-thumb-window" aria-hidden="true">
-              <iframe title="" tabIndex={-1} sandbox="allow-same-origin" srcDoc={html} width={WIDTH} height={Math.round(HEIGHT / SCALE)} style={{ transform: `scale(${SCALE})` }} />
+              <SteadyFrame title="" tabIndex={-1} html={html} width={WIDTH} height={Math.round(HEIGHT / SCALE)} style={{ transform: `scale(${SCALE})` }} />
             </span>
             {/* a frame may not be inside a button: the button lies over the whole card */}
             <button type="button" role="radio" aria-checked={state.readyId === r.id} tabIndex={state.readyId === r.id ? 0 : -1} className="kntb-thumb-pick" onClick={() => { dispatch({ type: 'template', id: r.id }) }}>

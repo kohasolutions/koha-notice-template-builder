@@ -20,11 +20,11 @@ export const CSS = `
 .kntb-field{margin:0 0 10px;border:0;padding:0;min-width:0}
 .kntb-field>label,.kntb-field>legend{display:block;font-size:13px;font-weight:600;margin-bottom:3px;padding:0}
 .kntb-check label{font-weight:400;display:flex;gap:6px;align-items:center}
-.kntb input:not([type=checkbox]):not([type=color]):not([type=range]),.kntb select,.kntb textarea{width:100%;min-height:36px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--text);font:inherit}
+.kntb input:not([type=checkbox]):not([type=radio]):not([type=color]):not([type=range]),.kntb select,.kntb textarea{width:100%;min-height:36px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--text);font:inherit}
 .kntb textarea{resize:vertical;font-family:ui-monospace,Consolas,monospace;font-size:13px}
 .kntb-brand textarea{font-family:inherit}
 .kntb input[type=color]{width:44px;height:36px;padding:2px;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
-.kntb input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+.kntb input[type=checkbox],.kntb input[type=radio]{width:18px;height:18px;flex:none;accent-color:var(--accent)}
 .kntb input[type=range]{flex:1;accent-color:var(--accent);min-width:0}
 .kntb-row{display:flex;gap:6px;align-items:center}
 .kntb-wrap{flex-wrap:wrap}

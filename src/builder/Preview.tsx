@@ -1,10 +1,11 @@
 // The live preview: the compiled notice with the sample Koha printed for it, on a phone and a desktop width.
 // The same compile() output is what goes into Koha (scripts/prove.mjs proves the two equal).
 import type { Dispatch } from 'react'
-import { useMemo, useRef, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { compile, compileSubject } from '../compiler/compile.ts'
 import { NOTICES } from '../notices/data.ts'
 import { CopyButton } from './copy.tsx'
+import { SteadyFrame } from './SteadyFrame.tsx'
 import { forKoha, TO_CREATE } from './for-koha.ts'
 import { FORMAT_NAME } from './labels.ts'
 import type { Action, State, View } from './state.ts'
@@ -15,15 +16,13 @@ const WIDTH = { phone: 390, desktop: 740 } as const
 
 /** A notice in a sandbox: no script runs, and its styles cannot reach the page. Its height follows its content. */
 function Frame({ html, width, dark, label }: { html: string; width: number; dark: boolean; label: string }) {
-  const ref = useRef<HTMLIFrameElement>(null)
   const [height, setHeight] = useState(480)
   return (
     <figure className="kntb-frame" style={{ width }}>
       <figcaption>{label}</figcaption>
-      <iframe
-        ref={ref} title={`${label} preview`} sandbox="allow-same-origin" srcDoc={html} width={width} height={height}
-        className={dark ? 'kntb-dark' : undefined}
-        onLoad={() => { const h = ref.current?.contentDocument?.documentElement.scrollHeight; if (h) setHeight(Math.min(h + 4, 6000)) }}
+      <SteadyFrame
+        title={`${label} preview`} html={html} width={width} height={height} className={dark ? 'kntb-dark' : undefined}
+        onHeight={(h) => { setHeight(Math.min(h + 4, 6000)) }}
       />
     </figure>
   )
